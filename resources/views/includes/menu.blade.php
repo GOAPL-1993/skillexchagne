@@ -6,39 +6,58 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <!-- <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
+      </li> -->
       @if (Route::has('login'))
-        @auth
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/logout/') }}">logout</a>
-            </li>
-        @else
-            <li class="nav-item">
-            <a class="nav-link" href="{{ url('/login') }}">Login</a>
-            </li>
-            @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/register') }}">Register</a>
-                </li>
-            @endif
-        @endif
+      @auth
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/logout/') }}">logout</a>
+      </li>
+      @else
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/login') }}">Login</a>
+      </li>
+      @if (Route::has('register'))
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/register') }}">Register</a>
+      </li>
+      @endif
+      @endif
       @endif
       <li class="nav-item">
-                           <a class="nav-link" href="{{ url('/') }}">發表文章</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="{{ url('/') }}">聊天室</a>
-                        </li>
+        <a class="nav-link" href="{{ url('/') }}">發表文章</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/') }}">聊天室</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/') }}">數據分析</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/') }}">關於我們</a>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           會員中心
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          @if (Route::has('login'))
+          @auth
+          <a class="dropdown-item" href="logout">logout</a>
+          @else
+          <a class="dropdown-item" href="{{ url('/login') }}">Login</a>
+          @if (Route::has('register'))
+          <a class="dropdown-item" href="{{ url('/register') }}">Register</a>
+          @endif
+          @endif
+          @endif
+          <a class="dropdown-item" href="#">個人資料</a>
+          <a class="dropdown-item" href="#">我的貼文</a>
+          <a class="dropdown-item" href="#">我的收藏</a>
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
@@ -49,11 +68,6 @@
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li> -->
     </ul>
-    
+
   </div>
 </nav>
-
-
-
-
-  
