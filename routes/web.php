@@ -22,6 +22,7 @@ $username = "Guest";
         }
 
 Route::get('/',[VideoPlayController::class,'index']);
+Route::get('/logout/', [VideoPlayController::class, 'logout']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

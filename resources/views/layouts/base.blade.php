@@ -17,22 +17,15 @@
 </style>
   </head>
   <body>
-      
+
     @include('includes.menu')
     
-      <div class='sidebar_left' style='width:20% ;float:left'>
-        @include('includes.catalog')
-      </div>
-      
-      <div class='content' style='margin-left:20% ; height:65% '>  
-      <img src='/images/cat.png' width=240 height=240>
-      @yield('content')
-      
-      <hr>
-      </div>
-      <div class='footer'>
-      @include('includes.footer')
-      </div>
+    @include('includes.catalog')
+    <div class='content' style='margin-left:20% ; height:65% '>
+    @yield('content')
+    </div>
+    <hr> 
+    @include('includes.footer')
       
       
 
