@@ -21,9 +21,7 @@
     @include('includes.menu')
     
     @include('includes.catalog')
-    <div class='content' style='margin-left:20% ; height:65% '>
     @yield('content')
-    </div>
     <hr> 
     @include('includes.footer')
       
