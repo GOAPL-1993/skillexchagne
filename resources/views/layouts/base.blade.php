@@ -22,7 +22,7 @@
     
     @include('includes.catalog')
     @yield('content')
-    <hr> 
+     
     @include('includes.footer')
       
       
