@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\VideoPlayController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,6 +24,7 @@ $username = "Guest";
 
 Route::get('/',[VideoPlayController::class,'index']);
 Route::get('/logout/', [VideoPlayController::class, 'logout']);
+Route::get('/post',[PostController::class,'post']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
