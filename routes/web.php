@@ -25,6 +25,7 @@ $username = "Guest";
 Route::get('/',[VideoPlayController::class,'index']);
 Route::get('/logout/', [VideoPlayController::class, 'logout']);
 Route::get('/post',[PostController::class,'post']);
+Route::post('/add-post',[PostController::class,'addPost'])->name('post.add');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
