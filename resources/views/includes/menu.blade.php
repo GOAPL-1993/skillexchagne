@@ -37,7 +37,10 @@
         <a class="nav-link" href="{{ url('/') }}">數據分析</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/') }}">發表文章</a>
+        <a class="nav-link" href="{{ url('/post') }}">發表文章</a>
+         <!--<button type="button" class="btn" data-toggle="modal" data-target="#myModal" a href="{{ url('/pages.post') }}">
+             發表文章
+         </button>-->
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ url('/') }}">聊天室</a>

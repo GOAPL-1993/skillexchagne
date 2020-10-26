@@ -1,8 +1,7 @@
 <div class="container">
   <div class="list-group sidebar-left" style="text-align:center;float:left">
     <form class="form-inline my-2 my-lg-1" style="width:10% ;float:left">
-      <input class="form-control mr-sm-1" type="技能關鍵字" placeholder="技能關鍵字" aria-label="技能關鍵字">
-      <select class="custom-select">
+    <select class="custom-select">
         <option selected>地區搜尋</option>
         <option value="1">新北市</option>
         <option value="2">台北市</option>
@@ -24,6 +23,8 @@
         <option value="17">花蓮縣</option>
         <option value="17">宜蘭縣</option>
       </select>
+      <input class="form-control mr-sm-1" type="技能關鍵字" placeholder="技能關鍵字" aria-label="技能關鍵字">
+      
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
     
@@ -36,10 +37,10 @@
       <a href="#" class="list-group-item list-group-item-action">西班牙文</a>
       <a href="#" class="list-group-item list-group-item-action">運動</a>
       <a href="#" class="list-group-item list-group-item-action">藝術</a>
-      <a href="#" class="list-group-item list-group-item-action">前端程式</a>
-      <a href="#" class="list-group-item list-group-item-action">後端程式</a>
       <a href="#" class="list-group-item list-group-item-action">鋼琴</a>
       <a href="#" class="list-group-item list-group-item-action">吉他</a>
+      <a href="#" class="list-group-item list-group-item-action">前端程式</a>
+      <a href="#" class="list-group-item list-group-item-action">後端程式</a>
     </div>
   </div>
 </div>
