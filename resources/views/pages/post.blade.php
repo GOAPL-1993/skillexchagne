@@ -30,13 +30,31 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>學習交換-發表文章</title>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -44,8 +62,9 @@
 
 <body>
   <div class="container">
-    <form id="postForm">
-      <div class="form-group">
+    @include('includes.menu')
+    <form id="postForm" class="container">
+      <div class="form-group col-7">
         <label for="exampleFormControlSelect1">類別</label>
         <select class="form-control" id="exampleFormControlSelect1">
           <option>交換技能</option>
@@ -53,7 +72,7 @@
           <option>找學生</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group col-7">
         <label for="exampleFormControlSelect1">地點</label>
         <select class="form-control" id="exampleFormControlSelect1">
           <option value="1">新北市</option>
@@ -77,20 +96,20 @@
           <option value="17">宜蘭縣</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group col-7">
         <label for="exampleFormControlTextarea1">擅長技能</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
       </div>
-      <div class="form-group">
+      <div class="form-group col-7">
         <label for="exampleFormControlTextarea1">想學習技能</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
       </div>
-      <div class="form-group">
+      <div class="form-group col-7">
         <label for="exampleFormControlTextarea1">交換內容及方式</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
-      <div class="form-group">
-        <label for="exampleFormControlSelect2">標籤</label>
+      <div class="form-group col-7">
+        <label for="exampleFormControlSelect2">擅長技能標籤</label>
         <select multiple class="form-control" id="exampleFormControlSelect2">
           <option>英文</option>
           <option>日文</option>
@@ -106,7 +125,10 @@
           <option>後端程式</option>
         </select>
       </div>
-      <input type="submit" action="">
+      <div class="post-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary">發佈</button>
+      </div>
     </form>
   </div>
 
@@ -116,11 +138,12 @@
 
       let sort = $("#sort").val();
       let area = $("#area").val();
-      let wannateach = $("#wannateach").val();
-      let wannalearn = $("#wannalearn").val();
+      let wannaTeach = $("#wannateach").val();
+      let wannaLearn = $("#wannalearn").val();
       let body = $("#body").val();
       let catalog = $("#catalog").val();
-
+      let _token = $("input[name=_token]").val();
+      
       $.ajax({
         url: "{{route('post.add')}}",
         type: "POST",
@@ -131,12 +154,21 @@
           wannalearn: wannalearn,
           body: body,
           catalog: catalog,
-        },
+          _token: _token
 
+        },
+        success: function(response) {
+          if (response) {
+            $("#postSort").prepend(response.sort);
+          }
+          
+        }
       })
 
 
     })
+    document.write(response.sort);
+
   </script>
 
 
