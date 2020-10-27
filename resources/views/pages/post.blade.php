@@ -1,53 +1,3 @@
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,16 +15,16 @@
     @include('includes.menu')
     <form id="postForm" class="container">
       <div class="form-group col-7">
-        <label for="exampleFormControlSelect1">類別</label>
-        <select class="form-control" id="exampleFormControlSelect1">
+        <label for="postSort">類別</label>
+        <select class="form-control" id="postSort">
           <option>交換技能</option>
           <option>找老師</option>
           <option>找學生</option>
         </select>
       </div>
       <div class="form-group col-7">
-        <label for="exampleFormControlSelect1">地點</label>
-        <select class="form-control" id="exampleFormControlSelect1">
+        <label for="postArea">地點</label>
+        <select class="form-control" id="postArea">
           <option value="1">新北市</option>
           <option value="2">台北市</option>
           <option value="3">基隆市</option>
@@ -97,20 +47,20 @@
         </select>
       </div>
       <div class="form-group col-7">
-        <label for="exampleFormControlTextarea1">擅長技能</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+        <label for="postWannaTeach">擅長技能</label>
+        <textarea class="form-control" id="postWannaTeach" rows="1"></textarea>
       </div>
       <div class="form-group col-7">
-        <label for="exampleFormControlTextarea1">想學習技能</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+        <label for="postWannaLearn">想學習技能</label>
+        <textarea class="form-control" id="postWannaLearn" rows="1"></textarea>
       </div>
       <div class="form-group col-7">
-        <label for="exampleFormControlTextarea1">交換內容及方式</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <label for="postBody">交換內容及方式</label>
+        <textarea class="form-control" id="postBody" rows="3"></textarea>
       </div>
       <div class="form-group col-7">
-        <label for="exampleFormControlSelect2">擅長技能標籤</label>
-        <select multiple class="form-control" id="exampleFormControlSelect2">
+        <label for="postCatalog">擅長技能標籤</label>
+        <select multiple class="form-control" id="postCatalog">
           <option>英文</option>
           <option>日文</option>
           <option>韓文</option>
@@ -126,7 +76,7 @@
         </select>
       </div>
       <div class="post-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="self.location.href='{{ url('/') }}'">取消</button>
         <button type="button" class="btn btn-primary">發佈</button>
       </div>
     </form>
@@ -138,8 +88,8 @@
 
       let sort = $("#sort").val();
       let area = $("#area").val();
-      let wannaTeach = $("#wannateach").val();
-      let wannaLearn = $("#wannalearn").val();
+      let wannaTeach = $("#wannaTeach").val();
+      let wannaLearn = $("#wannaLearn").val();
       let body = $("#body").val();
       let catalog = $("#catalog").val();
       let _token = $("input[name=_token]").val();
@@ -150,8 +100,8 @@
         data: {
           sort: sort,
           area: area,
-          wannateach: wannateach,
-          wannalearn: wannalearn,
+          wannaTeach: wannaTeach,
+          wannaLearn: wannaLearn,
           body: body,
           catalog: catalog,
           _token: _token
@@ -167,7 +117,6 @@
 
 
     })
-    document.write(response.sort);
 
   </script>
 
