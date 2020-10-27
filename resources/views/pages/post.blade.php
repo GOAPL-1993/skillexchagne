@@ -5,13 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>學習交換-發表文章</title>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" method="POST" action="/addPost">
+    @csrf
     @include('includes.menu')
     <form id="postForm" class="container">
       <div class="form-group col-7">
@@ -88,20 +89,20 @@
 
       let sort = $("#sort").val();
       let area = $("#area").val();
-      let wannaTeach = $("#wannaTeach").val();
-      let wannaLearn = $("#wannaLearn").val();
+      let wanna_teach = $("#wanna_teach").val();
+      let wanna_learn = $("#wanna_learn").val();
       let body = $("#body").val();
       let catalog = $("#catalog").val();
       let _token = $("input[name=_token]").val();
-      
+
       $.ajax({
-        url: "{{route('post.add')}}",
+        url: "{{route('addPost')}}",
         type: "POST",
         data: {
           sort: sort,
           area: area,
-          wannaTeach: wannaTeach,
-          wannaLearn: wannaLearn,
+          wanna_teach: wanna_teach,
+          wanna_learn: wanna_learn,
           body: body,
           catalog: catalog,
           _token: _token
@@ -110,14 +111,14 @@
         success: function(response) {
           if (response) {
             $("#postSort").prepend(response.sort);
+            $("#postForm")[0].reset();
           }
-          
+
         }
       })
 
 
     })
-
   </script>
 
 

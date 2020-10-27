@@ -15,7 +15,7 @@ class PostController extends Controller
         }
         if ($username != "Guest"){
             return view('pages.post');
-            $posts = Post::prderBy ('id', 'body')->get();
+            $posts = Post::orderBy ('id', 'body')->get();
             return view ('posts', compact('posts'));
         } else {
             return view('auth.login');
@@ -26,11 +26,12 @@ class PostController extends Controller
         $post = new Post();
         $post->sort = $request->sort;
         $post->area = $request->area;
-        $post->wannaTeach = $request->wannaTeach;
-        $post->wannaLearn = $request->wannaLearn;
+        $post->wanna_teach = $request->wanna_teach;
+        $post->wanna_learn = $request->wanna_learn;
         $post->body = $request->body;
         $post->catalog = $request->catalog;
         $post->save();
-        return response()->json($post);
+        // return response()->json($post);
+        return redirect('/');
     }
 }
