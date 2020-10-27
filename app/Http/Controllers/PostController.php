@@ -26,8 +26,8 @@ class PostController extends Controller
         $post = new Post();
         $post->sort = $request->sort;
         $post->area = $request->area;
-        $post->wannateach = $request->wannateach;
-        $post->wannalearn = $request->wannalearn;
+        $post->wannaTeach = $request->wannaTeach;
+        $post->wannaLearn = $request->wannaLearn;
         $post->body = $request->body;
         $post->catalog = $request->catalog;
         $post->save();
