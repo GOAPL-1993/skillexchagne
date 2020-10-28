@@ -39,12 +39,26 @@ class PostController extends Controller
 
     public function addPost(Request $req)
     { //Request是一個模組，把資料拿過來用
-        DB::table("posts")->insert(['sort' => $req->postSort]);
-        DB::table("posts")->insert(['area' => $req->postArea]);
-        DB::table("posts")->insert(['wanna_teach' => $req->postWannaTeach]);
-        DB::table("posts")->insert(['wanna_learn' => $req->postWannaLearn]);
-        DB::table("posts")->insert(['body' => $req->postBody]);
-        DB::table("posts")->insert(['catalog' => $req->postCatalog]);
+        // DB::table("posts")->insert([('sort') => $req->postSort]);
+        // DB::table("posts")->insert(['area' => $req->postArea]);
+        // DB::table("posts")->insert(['wanna_teach' => $req->postWannaTeach]);
+        // DB::table("posts")->insert(['wanna_learn' => $req->postWannaLearn]);
+        // DB::table("posts")->insert(['body' => $req->postBody]);
+        // DB::table("posts")->insert(['catalog' => $req->postCatalog]);
+
+
+
+        DB::table("posts")->insert([
+            'sort' => $req->postSort,
+            'area' => $req->postArea,
+            'wanna_teach' => $req->postWannaTeach,
+            'wanna_learn' => $req->postWannaLearn,
+            'body' => $req->postBody,
+            'catalog' => $req->postCatalog
+            ]);
+
+
+
         return redirect('/'); //重新導向
     }
 }

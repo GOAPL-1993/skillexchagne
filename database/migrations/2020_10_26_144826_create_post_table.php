@@ -15,10 +15,10 @@ class CreatePostTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string("wanna_teach");
+            $table->string("wanna_teach" );
             $table->string("wanna_learn");
             $table->string("body");
-            $table->string("likes");
+            $table->string("likes")->default(0);
             $table->string("sort");
             $table->string("catalog");
             $table->string("area");
