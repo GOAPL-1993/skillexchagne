@@ -11,10 +11,10 @@
 </head>
 
 <body>
-  <div class="container" method="POST" action="/addPost">
+  <div class="container">
     @csrf
     @include('includes.menu')
-    <form id="postForm" class="container">
+    <form id="postForm" class="container" method="POST">
       <div class="form-group col-7">
         <label for="postSort">類別</label>
         <select class="form-control" id="postSort">
@@ -78,7 +78,7 @@
       </div>
       <div class="post-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="self.location.href='{{ url('/') }}'">取消</button>
-        <button type="button" class="btn btn-primary">發佈</button>
+        <button type="button" class="btn btn-primary" onclick="self.location.href='/addpost'">發佈</button>
       </div>
     </form>
   </div>
@@ -87,12 +87,12 @@
     $("postForm").submit(function(e) {
       e.preventDefault();
 
-      let sort = $("#sort").val();
-      let area = $("#area").val();
-      let wanna_teach = $("#wanna_teach").val();
-      let wanna_learn = $("#wanna_learn").val();
-      let body = $("#body").val();
-      let catalog = $("#catalog").val();
+      let sort = $("#postSort").val();
+      let area = $("#postArea").val();
+      let wanna_teach = $("#postWannaTeach").val();
+      let wanna_learn = $("#postWannaLearn").val();
+      let body = $("#postBody").val();
+      let catalog = $("#postCatalog").val();
       let _token = $("input[name=_token]").val();
 
       $.ajax({
