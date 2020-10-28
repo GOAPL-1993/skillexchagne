@@ -50,6 +50,7 @@
       <div class="form-group col-7">
         <label for="postWannaTeach">擅長技能</label>
         <textarea class="form-control" id="postWannaTeach" name="postWannaTeach" rows="1"></textarea>
+        <span style="color:red">@error('name'){{$wanna_teach}} @enderror</span>
       </div>
       <div class="form-group col-7">
         <label for="postWannaLearn">想學習技能</label>
@@ -83,7 +84,6 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="self.location.href='{{ url('/') }}'">取消</button>
         <!-- <button type="button" class="btn btn-primary" onclick="self.location.href='{{ url('/addPost/') }}'" method="POST">發佈</button> -->
         <input type=submit value=ADD>
-
       </div>
     </form>
   </div>

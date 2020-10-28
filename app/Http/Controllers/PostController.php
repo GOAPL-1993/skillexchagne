@@ -19,8 +19,12 @@ class PostController extends Controller
         if ($username != "Guest") {
             return view('pages.post');
             $sorts = DB::table('posts')->get();
+            $areas = DB::table('posts')->get();
             $wanna_teachs = DB::table('posts')->get();
-            return view('pages.index', compact('username', 'sorts', 'wanna_teachs'));
+            $wanna_learns = DB::table('posts')->get();
+            $bodies = DB::table('posts')->get();
+            $catalogs = DB::table('posts')->get();
+            return view('pages.index', compact('username', 'sorts', 'areas', 'wanna_teachs', 'wanna_learns', 'bodies', 'catalogs'));
             
         } else {
             return view('auth.login');
