@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -17,35 +18,29 @@ class PostController extends Controller
         }
         if ($username != "Guest") {
             return view('pages.post');
-            $posts = Post::orderBy('id', 'body')->post();
-            return view('posts', compact('posts'));
+            $sorts = DB::table('posts')->get();
+            $wanna_teachs = DB::table('posts')->get();
+            return view('pages.index', compact('username', 'sorts', 'wanna_teachs'));
+            
         } else {
             return view('auth.login');
         }
     }
-    function addPost(Request $request)
+
+    public function logout()
     {
-        $post = new Post();
-        $post->sort = $request->sort;
-        $post->area = $request->area;
-        $post->wanna_teach = $request->wanna_teach;
-        $post->wanna_learn = $request->wanna_learn;
-        $post->body = $request->body;
-        $post->catalog = $request->catalog;
-        $post->save();
-        return response()->json($post);
-
-        // return $request->input();
-        // $request->validate([
-        //     'postSort' => 'required',
-        //     'postArea' => 'required',
-        //     'postWannaTeach' => 'required',
-        //     'postWannaLearn' => 'required',
-        //     'postBody' => 'required',
-        //     'postCatalog' => 'required',
-        // ]);
-
-
+        Auth::logout();
         return redirect('/');
+    }
+
+    public function addPost(Request $req)
+    { //Request是一個模組，把資料拿過來用
+        DB::table("posts")->insert(['sort' => $req->postSort]);
+        DB::table("posts")->insert(['area' => $req->postArea]);
+        DB::table("posts")->insert(['wanna_teach' => $req->postWannaTeach]);
+        DB::table("posts")->insert(['wanna_learn' => $req->postWannaLearn]);
+        DB::table("posts")->insert(['body' => $req->postBody]);
+        DB::table("posts")->insert(['catalog' => $req->postCatalog]);
+        return redirect('/'); //重新導向
     }
 }

@@ -12,9 +12,8 @@
 
 <body>
   <div class="container">
-    @csrf
     @include('includes.menu')
-    <form id="postForm" class="container" method="POST" action="addPost">
+    <form id="postForm" class="container" method="get" action="/addPost/">
       @csrf
       <div class="form-group col-7">
         <label for="postSort">類別</label>
@@ -82,53 +81,14 @@
       </div>
       <div class="post-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="self.location.href='{{ url('/') }}'">取消</button>
-        <button type="button" class="btn btn-primary"onclick="self.location.href='{{ url('addPost') }}'" method="POST">發佈</button>
+        <!-- <button type="button" class="btn btn-primary" onclick="self.location.href='{{ url('/addPost/') }}'" method="POST">發佈</button> -->
+        <input type=submit value=ADD>
+
       </div>
     </form>
   </div>
 
-  <script>
-    $("postForm").submit(function(e) {
-      e.preventDefault();
-
-      let sort = $("#postSort").val();
-      let area = $("#postArea").val();
-      let wanna_teach = $("#postWannaTeach").val();
-      let wanna_learn = $("#postWannaLearn").val();
-      let body = $("#postBody").val();
-      let catalog = $("#postCatalog").val();
-      let _token = $("input[name=_token]").val();
-
-      $.ajax({
-        url: "{{route('addPost')}}",
-        type: "POST",
-        data: {
-          sort: sort,
-          area: area,
-          wanna_teach: wanna_teach,
-          wanna_learn: wanna_learn,
-          body: body,
-          catalog: catalog,
-          _token: _token
-
-        },
-        success: function(response) {
-          if (response) {
-            $("#postSort").prepend(response.sort);
-            $("#postArea").prepend(response.area);
-            $("#postWannaTeach").prepend(response.teach);
-            $("#postWannaLearn").prepend(response.learn);
-            $("#postBody").prepend(response.body);
-            $("#postCatalog").prepend(response.catalog);
-            $("#postForm")[0].reset();
-          }
-
-        }
-      })
-
-
-    })
-  </script>
+  
 
 
 </body>
