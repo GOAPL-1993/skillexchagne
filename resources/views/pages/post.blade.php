@@ -19,13 +19,10 @@
       @csrf
 
       <h2>Hello, {{ $username }}</h2>
-      <div class="form-group col-7">
+      <div style="display:none">
         <label for="postUsername"></label>
-        <textarea class="form-control" id="postUsername" name="postUsername" rows="1" value={{ $username }}>{{ $username }}</textarea>
+        <textarea id="postUsername" name="postUsername" rows="1" value={{ $username }}>{{ $username }}</textarea>
       </div>
-
-
-
       <div class="form-group col-7">
         <label for="postSort">類別</label>
         <select class="form-control" id="postSort" name="postSort">
