@@ -25,7 +25,6 @@ class PostController extends Controller
             $bodies = DB::table('posts')->get();
             $catalogs = DB::table('posts')->get();
             return view('pages.index', compact('username', 'sorts', 'areas', 'wanna_teachs', 'wanna_learns', 'bodies', 'catalogs'));
-            
         } else {
             return view('auth.login');
         }
@@ -39,14 +38,6 @@ class PostController extends Controller
 
     public function addPost(Request $req)
     { //Request是一個模組，把資料拿過來用
-        // DB::table("posts")->insert([('sort') => $req->postSort]);
-        // DB::table("posts")->insert(['area' => $req->postArea]);
-        // DB::table("posts")->insert(['wanna_teach' => $req->postWannaTeach]);
-        // DB::table("posts")->insert(['wanna_learn' => $req->postWannaLearn]);
-        // DB::table("posts")->insert(['body' => $req->postBody]);
-        // DB::table("posts")->insert(['catalog' => $req->postCatalog]);
-
-
 
         DB::table("posts")->insert([
             'sort' => $req->postSort,
@@ -55,9 +46,7 @@ class PostController extends Controller
             'wanna_learn' => $req->postWannaLearn,
             'body' => $req->postBody,
             'catalog' => $req->postCatalog
-            ]);
-
-
+        ]);
 
         return redirect('/'); //重新導向
     }

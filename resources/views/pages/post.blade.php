@@ -26,25 +26,25 @@
       <div class="form-group col-7">
         <label for="postArea">地點</label>
         <select class="form-control" id="postArea" name="postArea">
-          <option value="1">新北市</option>
-          <option value="2">台北市</option>
-          <option value="3">基隆市</option>
-          <option value="4">桃園市</option>
-          <option value="5">新竹縣</option>
-          <option value="6">新竹市</option>
-          <option value="7">苗栗縣</option>
-          <option value="8">台中市</option>
-          <option value="9">彰化縣</option>
-          <option value="10">雲林縣</option>
-          <option value="11">南投縣</option>
-          <option value="12">嘉義縣</option>
-          <option value="13">嘉義市</option>
-          <option value="14">台南市</option>
-          <option value="15">高雄市</option>
-          <option value="16">屏東縣</option>
-          <option value="17">台東縣</option>
-          <option value="17">花蓮縣</option>
-          <option value="17">宜蘭縣</option>
+          <option>新北市</option>
+          <option>台北市</option>
+          <option>基隆市</option>
+          <option>桃園市</option>
+          <option>新竹縣</option>
+          <option>新竹市</option>
+          <option>苗栗縣</option>
+          <option>台中市</option>
+          <option>彰化縣</option>
+          <option>雲林縣</option>
+          <option>南投縣</option>
+          <option>嘉義縣</option>
+          <option>嘉義市</option>
+          <option>台南市</option>
+          <option>高雄市</option>
+          <option>屏東縣</option>
+          <option>台東縣</option>
+          <option>花蓮縣</option>
+          <option>宜蘭縣</option>
         </select>
       </div>
       <div class="form-group col-7">
