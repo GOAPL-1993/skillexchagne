@@ -11,10 +11,21 @@
 </head>
 
 <body>
+
   <div class="container">
     @include('includes.menu')
+
     <form id="postForm" class="container" method="get" action="/addPost/">
       @csrf
+
+      <h2>Hello, {{ $username }}</h2>
+      <div class="form-group col-7">
+        <label for="postUsername"></label>
+        <textarea class="form-control" id="postUsername" name="postUsername" rows="1" value={{ $username }}>{{ $username }}</textarea>
+      </div>
+
+
+
       <div class="form-group col-7">
         <label for="postSort">類別</label>
         <select class="form-control" id="postSort" name="postSort">
@@ -88,7 +99,6 @@
     </form>
   </div>
 
-  
 
 
 </body>

@@ -15,15 +15,13 @@ class PostController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
             $username = $user->name;
+            DB::table('posts')->get();
+            return view('pages.post', compact('username'));
+
         }
         if ($username != "Guest") {
-            return view('pages.post');
-            $sorts = DB::table('posts')->get();
-            $areas = DB::table('posts')->get();
-            $wanna_teachs = DB::table('posts')->get();
-            $wanna_learns = DB::table('posts')->get();
-            $bodies = DB::table('posts')->get();
-            $catalogs = DB::table('posts')->get();
+            return view('pages.post', compact('username'));
+            DB::table('posts')->get();
             return view('pages.index', compact('username', 'sorts', 'areas', 'wanna_teachs', 'wanna_learns', 'bodies', 'catalogs'));
         } else {
             return view('auth.login');
@@ -39,7 +37,9 @@ class PostController extends Controller
     public function addPost(Request $req)
     { //Request是一個模組，把資料拿過來用
 
+        global $username;
         DB::table("posts")->insert([
+            'username'=> $req->postUsername,
             'sort' => $req->postSort,
             'area' => $req->postArea,
             'wanna_teach' => $req->postWannaTeach,
@@ -49,5 +49,10 @@ class PostController extends Controller
         ]);
 
         return redirect('/'); //重新導向
+    }
+    public function showPost($id)
+    {
+        DB::table("posts")->where('listed', '=', $id)->get();
+        return view("pages.index", compact('ids', 'username', 'sorts', 'areas', 'wanna_teachs', 'wanna_learns', 'bodies', 'catalogs'));
     }
 }
