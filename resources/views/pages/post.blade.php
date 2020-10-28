@@ -14,10 +14,11 @@
   <div class="container">
     @csrf
     @include('includes.menu')
-    <form id="postForm" class="container" method="POST">
+    <form id="postForm" class="container" method="POST" action="addPost">
+      @csrf
       <div class="form-group col-7">
         <label for="postSort">類別</label>
-        <select class="form-control" id="postSort">
+        <select class="form-control" id="postSort" name="postSort">
           <option>交換技能</option>
           <option>找老師</option>
           <option>找學生</option>
@@ -25,7 +26,7 @@
       </div>
       <div class="form-group col-7">
         <label for="postArea">地點</label>
-        <select class="form-control" id="postArea">
+        <select class="form-control" id="postArea" name="postArea">
           <option value="1">新北市</option>
           <option value="2">台北市</option>
           <option value="3">基隆市</option>
@@ -49,19 +50,21 @@
       </div>
       <div class="form-group col-7">
         <label for="postWannaTeach">擅長技能</label>
-        <textarea class="form-control" id="postWannaTeach" rows="1"></textarea>
+        <textarea class="form-control" id="postWannaTeach" name="postWannaTeach" rows="1"></textarea>
       </div>
       <div class="form-group col-7">
         <label for="postWannaLearn">想學習技能</label>
-        <textarea class="form-control" id="postWannaLearn" rows="1"></textarea>
+        <textarea class="form-control" id="postWannaLearn" name="postWannaLearn" rows="1"></textarea>
+        <span style="color:red">@error('name'){{$wanna_teach}} @enderror</span>
       </div>
       <div class="form-group col-7">
         <label for="postBody">交換內容及方式</label>
-        <textarea class="form-control" id="postBody" rows="3"></textarea>
+        <textarea class="form-control" id="postBody" name="postBody" rows="3"></textarea>
+        <span style="color:red">@error('name'){{$wanna_learn}} @enderror</span>
       </div>
       <div class="form-group col-7">
         <label for="postCatalog">擅長技能標籤</label>
-        <select multiple class="form-control" id="postCatalog">
+        <select multiple class="form-control" id="postCatalog" name="postCatalog">
           <option>英文</option>
           <option>日文</option>
           <option>韓文</option>
@@ -75,10 +78,11 @@
           <option>前端程式</option>
           <option>後端程式</option>
         </select>
+        <span style="color:red">@error('name'){{$catalog}} @enderror</span>
       </div>
       <div class="post-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="self.location.href='{{ url('/') }}'">取消</button>
-        <button type="button" class="btn btn-primary" onclick="self.location.href='/addpost'">發佈</button>
+        <button type="button" class="btn btn-primary"onclick="self.location.href='{{ url('addPost') }}'" method="POST">發佈</button>
       </div>
     </form>
   </div>
@@ -111,6 +115,11 @@
         success: function(response) {
           if (response) {
             $("#postSort").prepend(response.sort);
+            $("#postArea").prepend(response.area);
+            $("#postWannaTeach").prepend(response.teach);
+            $("#postWannaLearn").prepend(response.learn);
+            $("#postBody").prepend(response.body);
+            $("#postCatalog").prepend(response.catalog);
             $("#postForm")[0].reset();
           }
 

@@ -13,7 +13,7 @@ class CreatePostTable extends Migration
      */
     public function up()
     {
-        Schema::create('post', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string("wanna_teach");
             $table->string("wanna_learn");
@@ -21,6 +21,7 @@ class CreatePostTable extends Migration
             $table->string("likes");
             $table->string("sort");
             $table->string("catalog");
+            $table->string("area");
             $table->timestamps();
         });
     }
