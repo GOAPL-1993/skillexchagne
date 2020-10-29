@@ -14,16 +14,12 @@ class PostController extends Controller
         $username = "Guest";
         if (Auth::check()) {
             $user = Auth::user();
-            $id = Auth::user();
+            $id = Auth::id();
             $username = $user->name;
             $user_id = $user->id;
-            DB::table('posts')->get();
             return view('pages.post', compact('username', 'user_id'));
-
         }
-        if ($username != "Guest") {
-            DB::table('posts')->get();
-        } else {
+        else {
             return view('auth.login');
         }
     }
@@ -39,8 +35,8 @@ class PostController extends Controller
 
         global $username;
         DB::table("posts")->insert([
-            'user_id'=> $req->postUserid,
-            'username'=> $req->postUsername,
+            'user_id' => $req->postUserid,
+            'username' => $req->postUsername,
             'sort' => $req->postSort,
             'area' => $req->postArea,
             'wanna_teach' => $req->postWannaTeach,
@@ -51,9 +47,19 @@ class PostController extends Controller
 
         return redirect('/'); //重新導向
     }
-    public function showPost($id)
+    public function showPost()
     {
-        DB::table("posts")->where('listid', '=', $id)->get();
-        return view("pages.index", compact('ids', 'username', 'sorts', 'areas', 'wanna_teachs', 'wanna_learns', 'bodies', 'catalogs'));
+        // Auth::id();
+        // $ids = DB::table("posts")->lists('id')->first();
+        // $user_ids = DB::table("posts")->where('user_id')->get();
+        // $usernames = DB::table("posts")->where('username')->get();
+        // $sorts = DB::table("posts")->where('sort')->get();
+        // $areas = DB::table("posts")->where('area')->get();
+        // $wanna_teachs = DB::table("posts")->where('wanna_teach')->get();
+        // $wanna_learns = DB::table("posts")->where('wanna_learn')->get();
+        // $bodies = DB::table("posts")->where('body')->get();
+        // $catalogs = DB::table("posts")->where('catalog')->get();
+        DB::table("posts")->get();
+        return view("pages.index", compact('id', 'user_ids', 'usernames', 'sorts', 'areas', 'wanna_teachs', 'wanna_learns', 'bodies', 'catalogs'));
     }
 }
