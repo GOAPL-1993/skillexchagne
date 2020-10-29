@@ -23,6 +23,10 @@
         <label for="postUsername"></label>
         <textarea id="postUsername" name="postUsername" rows="1" value={{ $username }}>{{ $username }}</textarea>
       </div>
+      <div style="display:none">
+        <label for="postUserid"></label>
+        <textarea id="postUserid" name="postUserid" rows="1" value={{ $user_id }}>{{ $user_id }}</textarea>
+      </div>
       <div class="form-group col-7">
         <label for="postSort">類別</label>
         <select class="form-control" id="postSort" name="postSort">

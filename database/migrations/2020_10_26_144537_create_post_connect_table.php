@@ -15,6 +15,8 @@ class CreatePostConnectTable extends Migration
     {
         Schema::create('post_connect', function (Blueprint $table) {
             $table->id();
+            $table->integer('post_id');
+            $table->integer('user_id');
             $table->string("URL");
             $table->timestamps();
         });

@@ -14,15 +14,15 @@ class PostController extends Controller
         $username = "Guest";
         if (Auth::check()) {
             $user = Auth::user();
+            $id = Auth::user();
             $username = $user->name;
+            $user_id = $user->id;
             DB::table('posts')->get();
-            return view('pages.post', compact('username'));
+            return view('pages.post', compact('username', 'user_id'));
 
         }
         if ($username != "Guest") {
-            return view('pages.post', compact('username'));
             DB::table('posts')->get();
-            return view('pages.index', compact('username', 'sorts', 'areas', 'wanna_teachs', 'wanna_learns', 'bodies', 'catalogs'));
         } else {
             return view('auth.login');
         }
@@ -39,6 +39,7 @@ class PostController extends Controller
 
         global $username;
         DB::table("posts")->insert([
+            'user_id'=> $req->postUserid,
             'username'=> $req->postUsername,
             'sort' => $req->postSort,
             'area' => $req->postArea,
@@ -52,7 +53,7 @@ class PostController extends Controller
     }
     public function showPost($id)
     {
-        DB::table("posts")->where('listed', '=', $id)->get();
+        DB::table("posts")->where('listid', '=', $id)->get();
         return view("pages.index", compact('ids', 'username', 'sorts', 'areas', 'wanna_teachs', 'wanna_learns', 'bodies', 'catalogs'));
     }
 }

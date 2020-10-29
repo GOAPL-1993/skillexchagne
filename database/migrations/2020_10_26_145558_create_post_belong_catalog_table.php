@@ -15,7 +15,8 @@ class CreatePostBelongCatalogTable extends Migration
     {
         Schema::create('post_belong_catalog', function (Blueprint $table) {
             $table->id();
-            $table->string("post_id");
+            $table->integer('user_id');
+            $table->integer('post_id');
             $table->string("catalog_id");
             $table->timestamps();
         });

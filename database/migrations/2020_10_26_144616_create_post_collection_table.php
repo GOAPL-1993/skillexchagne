@@ -15,6 +15,8 @@ class CreatePostCollectionTable extends Migration
     {
         Schema::create('post_collection', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->integer('post_id');
             $table->timestamps();
         });
     }
