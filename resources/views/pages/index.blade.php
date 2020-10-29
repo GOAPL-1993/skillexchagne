@@ -7,7 +7,7 @@ mytitle
 @section('content')
 <div class='content' style='margin-left:20% ; height:85% '>
 
-<h2>Hello,{{$usernames}}</h2>
+<h2>Hello Hello,{{$usernames}}</h2>
 @foreach ($ids as $id)
 <div class="card" style="width: 18rem;">
   <div class="card-body">
