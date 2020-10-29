@@ -49,17 +49,17 @@ class PostController extends Controller
     }
     public function showPost()
     {
-        // Auth::id();
-        // $ids = DB::table("posts")->lists('id')->first();
-        // $user_ids = DB::table("posts")->where('user_id')->get();
-        // $usernames = DB::table("posts")->where('username')->get();
-        // $sorts = DB::table("posts")->where('sort')->get();
-        // $areas = DB::table("posts")->where('area')->get();
-        // $wanna_teachs = DB::table("posts")->where('wanna_teach')->get();
-        // $wanna_learns = DB::table("posts")->where('wanna_learn')->get();
-        // $bodies = DB::table("posts")->where('body')->get();
-        // $catalogs = DB::table("posts")->where('catalog')->get();
-        DB::table("posts")->get();
-        return view("pages.index", compact('id', 'user_ids', 'usernames', 'sorts', 'areas', 'wanna_teachs', 'wanna_learns', 'bodies', 'catalogs'));
+        $ids = DB::table('posts')->get('id');
+        // return $ids;
+        $user_ids = DB::table("posts")->get('user_id');
+        $usernames = DB::table("posts")->get('username');
+        $sorts = DB::table("posts")->get('sort');
+        $areas = DB::table("posts")->get('area');
+        $wanna_teachs = DB::table("posts")->get('wanna_teach');
+        $wanna_learns = DB::table("posts")->get('wanna_learn');
+        $bodies = DB::table("posts")->get('body');
+        $catalogs = DB::table("posts")->get('catalog');
+        // DB::table("posts")->get();
+        return view("pages.index", compact('ids', 'user_ids', 'usernames', 'sorts', 'areas', 'wanna_teachs', 'wanna_learns', 'bodies', 'catalogs'));
     }
 }

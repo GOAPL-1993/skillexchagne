@@ -7,11 +7,11 @@ mytitle
 @section('content')
 <div class='content' style='margin-left:20% ; height:85% '>
 
-<h2>Hello, {{ $username }}</h2>
-<!-- <img src='/images/cat.png' width=240 height=240> -->
+<h2>Hello,{{$usernames}}</h2>
+@foreach ($ids as $id)
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">PO文者</h5>
+    <h5 class="card-title">po者</h5>
     <ul class="list-group list-group-flush">
        <li class="list-group-item">類別 交換技能</li>
        <li class="list-group-item">地點 高雄</li>
@@ -26,4 +26,5 @@ mytitle
   </div>
 </div>
 </div>
+@endforeach
 @endsection

@@ -26,7 +26,7 @@ Route::get('/',[VideoPlayController::class,'index']);
 Route::get('/logout', [VideoPlayController::class, 'logout']);
 Route::get('post',[PostController::class,'post']);
 Route::get('/addPost/',[PostController::class,'addPost'])->name('addPost');
-Route::middleware('/showPost/',[PostController::class,'showPost'])->name('showPost');
+Route::get('/',[PostController::class,'showPost'])->name('showPost');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

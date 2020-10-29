@@ -19,6 +19,7 @@
       @csrf
 
       <h2>Hello, {{ $username }}</h2>
+      
       <div style="display:none">
         <label for="postUsername"></label>
         <textarea id="postUsername" name="postUsername" rows="1" value={{ $username }}>{{ $username }}</textarea>
