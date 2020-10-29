@@ -15,8 +15,7 @@ class VideoPlayController extends Controller
             $user = Auth::user();
             $username = $user->name;
         }
-        $titles = DB::table('video_lists')->get();
-        return view('pages.index', compact('username', 'titles'));
+        return view('menu', compact('username'));
     }
     public function logout(){
         Auth::logout();

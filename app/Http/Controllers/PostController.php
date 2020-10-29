@@ -18,22 +18,14 @@ class PostController extends Controller
             $username = $user->name;
             $user_id = $user->id;
             return view('pages.post', compact('username', 'user_id'));
-        }
-        else {
+        } else {
             return view('auth.login');
         }
-    }
-
-    public function logout()
-    {
-        Auth::logout();
-        return redirect('/');
     }
 
     public function addPost(Request $req)
     { //Request是一個模組，把資料拿過來用
 
-        global $username;
         DB::table("posts")->insert([
             'user_id' => $req->postUserid,
             'username' => $req->postUsername,
@@ -51,15 +43,16 @@ class PostController extends Controller
     {
         $ids = DB::table('posts')->get('id');
         // return $ids;
-        $user_ids = DB::table("posts")->get('user_id');
-        $usernames = DB::table("posts")->get('username');
-        $sorts = DB::table("posts")->get('sort');
-        $areas = DB::table("posts")->get('area');
-        $wanna_teachs = DB::table("posts")->get('wanna_teach');
-        $wanna_learns = DB::table("posts")->get('wanna_learn');
-        $bodies = DB::table("posts")->get('body');
-        $catalogs = DB::table("posts")->get('catalog');
-        // DB::table("posts")->get();
-        return view("pages.index", compact('ids', 'user_ids', 'usernames', 'sorts', 'areas', 'wanna_teachs', 'wanna_learns', 'bodies', 'catalogs'));
+            $user_id = DB::table("posts")->get('user_id');
+            $post_user_ids = DB::table("posts")->get('user_id');
+            $post_usernames = DB::table("posts")->get('username');
+            $sorts = DB::table("posts")->get('sort');
+            $areas = DB::table("posts")->get('area');
+            $wanna_teachs = DB::table("posts")->get('wanna_teach');
+            $wanna_learns = DB::table("posts")->get('wanna_learn');
+            $bodies = DB::table("posts")->get('body');
+            $catalogs = DB::table("posts")->get('catalog');
+            // DB::table("posts")->get();
+            return view("pages.index", compact('ids', 'post_user_ids', 'user_id', 'post_usernames', 'sorts', 'areas', 'wanna_teachs', 'wanna_learns', 'bodies', 'catalogs'));
     }
 }
