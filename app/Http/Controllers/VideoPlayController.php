@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\DB;
 
 class VideoPlayController extends Controller
 {
-    public function index() {
+    public function getName() {
         
         $username = "Guest";
         if (Auth::check()) {
             $user = Auth::user();
             $username = $user->name;
         }
-        return view('menu', compact('username'));
+        return view('includes.menu', compact('username'));
     }
     public function logout(){
         Auth::logout();

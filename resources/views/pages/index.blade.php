@@ -5,8 +5,8 @@ mytitle
 @endsection
 
 @section('content')
+{{$post_usernames}}
 <div class='content' style='margin-left:20% ; height:85% '>
-
 @foreach ($ids as $id)
 <div class="card" style="width: 18rem;float:left">
   <div class="card-body">

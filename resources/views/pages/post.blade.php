@@ -14,19 +14,17 @@
 
   <div class="container">
     @include('includes.menu')
-
     <form id="postForm" class="container" method="get" action="/addPost/">
       @csrf
 
-      <h2>Hello, {{ $username }}</h2>
       
       <div style="display:none">
         <label for="postUsername"></label>
-        <textarea id="postUsername" name="postUsername" rows="1" value={{ $username }}>{{ $username }}</textarea>
+        <textarea id="postUsername" name="postUsername" rows="1" value={{ $post_username }}>{{ $post_username }}</textarea>
       </div>
       <div style="display:none">
         <label for="postUserid"></label>
-        <textarea id="postUserid" name="postUserid" rows="1" value={{ $user_id }}>{{ $user_id }}</textarea>
+        <textarea id="postUserid" name="postUserid" rows="1" value={{ $post_user_id }}>{{ $post_user_id }}</textarea>
       </div>
       <div class="form-group col-7">
         <label for="postSort">類別</label>
