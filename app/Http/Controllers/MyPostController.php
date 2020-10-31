@@ -8,17 +8,6 @@ use Illuminate\Http\Request;
 
 class MyPostController extends Controller
 {
-    public function post()
-    {
-        $username = "Guest";
-        if (Auth::check()) {
-            $user = Auth::user();
-            $username = $user->name;
-            return view('pages.post', compact('username'));
-        } else {
-            return view('auth.login');
-        }
-    }
 
     public function mypost()
     {
@@ -29,4 +18,12 @@ class MyPostController extends Controller
         $myposts = DB::table("posts")->where('post_username', '=', $username)->get();
         return view("pages.mypost", compact('myposts'));
     }
+    
+    public function delete($id)
+    {
+        DB::table("posts")->where('id', '=', $id)->delete();
+        //在資料表中找該id的對象，->delete代表delete
+        return redirect('/index'); //重新導向
+    }
+
 }
