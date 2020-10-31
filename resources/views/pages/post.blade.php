@@ -90,7 +90,7 @@
         <span style="color:red">@error('name'){{$catalog}} @enderror</span>
       </div>
       <div class="post-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="self.location.href='{{ url('/index') }}'">取消</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="self.location.href='/index'">取消</button>
         <button type=submit class="btn btn-secondary" value=ADD>發佈</button>
       </div>
     </form>

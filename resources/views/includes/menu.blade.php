@@ -1,3 +1,6 @@
+<?php
+use Illuminate\Support\Facades\Auth;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,11 +34,14 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/') }}">聊天室</a>
           </li>
-          
           @auth
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              aaa
+              <?php
+              $user = Auth::user();
+              $login_username = $user->name;
+              echo $login_username;
+              ?>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{ route('profile.show') }}">個人資料</a>

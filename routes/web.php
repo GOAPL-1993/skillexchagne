@@ -25,15 +25,14 @@ if (Auth::check()) {
     $username = $user->name;
 }
 
-Route::get('/index', [VideoPlayController::class, 'getName']);
-Route::get('/menu', [VideoPlayController::class, 'getName'])->name('getName');
+// Route::get('/menu', [VideoPlayController::class, 'getName']);
 Route::get('/logout', [VideoPlayController::class, 'logout']);
 Route::get('/post', [PostController::class, 'post']);
 Route::get('/addPost', [PostController::class, 'addPost'])->name('addPost');
 Route::get('/index', [PostController::class, 'showPost'])->name('showPost');
 Route::get('/mypost', [MyPostController::class, 'myPost'])->name('myPost');
 Route::get('/delete/{id}/', [MyPostController::class, 'delete']);
+Route::get('/', [AboutUsController::class, 'aboutUs']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-Route::get('/', [AboutUsController::class, 'aboutUs']);
