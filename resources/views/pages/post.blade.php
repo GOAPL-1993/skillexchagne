@@ -12,12 +12,10 @@
 
 <body>
 
+  @include('includes.menu')
   <div class="container">
-    @include('includes.menu')
     <form id="postForm" class="container" method="get" action="/addPost/">
       @csrf
-
-      
       <div style="display:none">
         <label for="postUsername"></label>
         <textarea id="postUsername" name="postUsername" rows="1" value={{ $post_username }}>{{ $post_username }}</textarea>
@@ -92,9 +90,8 @@
         <span style="color:red">@error('name'){{$catalog}} @enderror</span>
       </div>
       <div class="post-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="self.location.href='{{ url('/') }}'">取消</button>
-        <!-- <button type="button" class="btn btn-primary" onclick="self.location.href='{{ url('/addPost/') }}'" method="POST">發佈</button> -->
-        <input type=submit value=ADD>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="self.location.href='{{ url('/index') }}'">取消</button>
+        <button type=submit class="btn btn-secondary" value=ADD>發佈</button>
       </div>
     </form>
   </div>

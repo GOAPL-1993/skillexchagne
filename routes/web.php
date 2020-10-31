@@ -17,20 +17,20 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-$username = "Guest";
-        if (Auth::check()) {
-            $user = Auth::user();
-            $username = $user->name;
-        }
 
-Route::get('/index',[VideoPlayController::class,'getName'])->name('getName');
-Route::get('/menu',[VideoPlayController::class,'getName'])->name('getName');
-Route::get('/post',[VideoPlayController::class,'getName'])->name('getName');
-Route::get('/logout', [VideoPlayController::class,'logout']);
-Route::get('/post',[PostController::class,'post']);
-Route::get('/addPost',[PostController::class,'addPost'])->name('addPost');
-Route::get('/index',[PostController::class,'showPost'])->name('showPost');
+$username = "Guest";
+if (Auth::check()) {
+    $user = Auth::user();
+    $username = $user->name;
+}
+
+Route::get('/index', [VideoPlayController::class, 'getName']);
+Route::get('/menu', [VideoPlayController::class, 'getName'])->name('getName');
+Route::get('/logout', [VideoPlayController::class, 'logout']);
+Route::get('/post', [PostController::class, 'post']);
+Route::get('/addPost', [PostController::class, 'addPost'])->name('addPost');
+Route::get('/index', [PostController::class, 'showPost'])->name('showPost');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-Route::get('/', [AboutUsController::class, 'aboutus']);
+Route::get('/', [AboutUsController::class, 'aboutUs']);

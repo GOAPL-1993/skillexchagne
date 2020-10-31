@@ -8,7 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
- 
-    // protected $table = "posts";
-    // protected $fillable = ["sort", "area", "wanna_teach", "wanna_learn", "body", "catalog" ];
+
+    protected $table = "posts";
+    protected $fillable = [
+        "post_user_id",
+        "post_username",
+        "wanna_teach",
+        "wanna_learn",
+        "body",
+        "likes",
+        "sort",
+        "catalog",
+        "area",
+    ];
 }

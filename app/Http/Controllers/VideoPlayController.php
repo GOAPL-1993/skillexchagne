@@ -10,12 +10,12 @@ class VideoPlayController extends Controller
 {
     public function getName() {
         
-        $username = "Guest";
-        if (Auth::check()) {
-            $user = Auth::user();
-            $username = $user->name;
-        }
-        return view('includes.menu', compact('username'));
+        $user_name = "Guest";
+        // if (Auth::check()) {
+        //     $user = Auth::user();
+        //     $username = $user->name;
+            return view('pages.index', compact('username'));
+        // }
     }
     public function logout(){
         Auth::logout();

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class AboutUsController extends Controller
 {
-    public function aboutus()
+    public function aboutUs()
     {
         $username = "Guest";
         if (Auth::check()) {
