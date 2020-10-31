@@ -40,8 +40,8 @@
               aaa
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">個人資料</a>
-              <a class="dropdown-item" href="#">我的貼文</a>
+              <a class="dropdown-item" href="{{ route('profile.show') }}">個人資料</a>
+              <a class="dropdown-item" href="{{ url('/mypost') }}">我的貼文</a>
               <a class="dropdown-item" href="#">我的收藏</a>
               <div class="dropdown-divider"></div>
               @if (Route::has('login'))

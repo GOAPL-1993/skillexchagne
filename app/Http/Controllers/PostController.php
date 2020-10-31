@@ -41,20 +41,7 @@ class PostController extends Controller
     }
     public function showPost()
     {
-        $ids = DB::table('posts')->get('id');
-        // return $ids;
         $posts = DB::table("posts")->get();
-        
-        // $post_usernames = DB::table('posts')->get('post_username');
-        // $post_user_ids = DB::table("posts")->get('post_user_id');
-        // $post_usernames = DB::table("posts")->get('post_username');
-        // $sorts = DB::table("posts")->get('sort');
-        // $areas = DB::table("posts")->get('area');
-        // $wanna_teachs = DB::table("posts")->get('wanna_teach');
-        // $wanna_learns = DB::table("posts")->get('wanna_learn');
-        // $bodies = DB::table("posts")->get('body');
-        // $catalogs = DB::table("posts")->get('catalog');
-        // return view("pages.index", compact('ids', 'post_user_ids',  'post_usernames', 'sorts', 'areas', 'wanna_teachs', 'wanna_learns', 'bodies', 'catalogs'));
-        return view('pages.index', compact('ids', 'posts'));
+        return view('pages.index', compact( 'posts'));
     }
 }

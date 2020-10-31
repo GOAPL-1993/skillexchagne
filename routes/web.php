@@ -3,6 +3,7 @@
 use App\Http\Controllers\VideoPlayController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\MyPostController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,6 +31,7 @@ Route::get('/logout', [VideoPlayController::class, 'logout']);
 Route::get('/post', [PostController::class, 'post']);
 Route::get('/addPost', [PostController::class, 'addPost'])->name('addPost');
 Route::get('/index', [PostController::class, 'showPost'])->name('showPost');
+Route::get('/mypost', [MyPostController::class, 'myPost'])->name('myPost');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
