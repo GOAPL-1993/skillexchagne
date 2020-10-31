@@ -29,8 +29,7 @@
       </ul>
       <p class="card-text">{{$mypost -> body}}</p>
       <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
-      <button type="button" class="btn btn-outline-info btn-sm">收藏</button>
-      <button type="button" class="btn btn-dark btn-sm">發訊息</button>
+      <button type="button" class="btn btn-dark btn-sm">刪除</button>
     </div>
   </div>
 </div>

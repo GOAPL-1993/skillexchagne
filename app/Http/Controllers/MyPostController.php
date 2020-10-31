@@ -22,7 +22,11 @@ class MyPostController extends Controller
 
     public function mypost()
     {
-        $myposts = DB::table("posts")->get();
+        if (Auth::check()) {
+            $user = Auth::user();
+            $username = $user->name;
+        }
+        $myposts = DB::table("posts")->where('post_username', '=', $username)->get();
         return view("pages.mypost", compact('myposts'));
     }
 }
