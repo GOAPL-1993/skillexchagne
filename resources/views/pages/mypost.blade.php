@@ -28,7 +28,7 @@
         <hr>
       </ul>
       <p class="card-text">{{$mypost -> body}}</p>
-      <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
+      <!-- <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button> -->
       <button type="button" class="btn btn-outline-info btn-sm" onclick="self.location.href='/updatepost/{{ $mypost->id }}/'">修改</button>
       <button type="button" class="btn btn-dark btn-sm" onclick="self.location.href='/delete/{{ $mypost->id }}/'">刪除</button>
     </div>

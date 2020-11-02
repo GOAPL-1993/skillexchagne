@@ -18,12 +18,12 @@ class MyPostController extends Controller
         $myposts = DB::table("posts")->where('post_username', '=', $username)->get();
         return view("pages.mypost", compact('myposts'));
     }
-    
+
     public function delete($id)
     {
         DB::table("posts")->where('id', '=', $id)->delete();
         //在資料表中找該id的對象，->delete代表delete
-        return redirect('/index'); //重新導向
+        return redirect('/mypost'); //重新導向
     }
 
     public function wannaUpdate($id)
@@ -35,7 +35,7 @@ class MyPostController extends Controller
     public function updatePost(Request $req)
     { //Request是一個模組，把資料拿過來用
 
-        DB::table("posts")->where('id', '=', 'postid')->update([
+        DB::table("posts")->where('id', $req->postid)->update([
             'post_user_id' => $req->postUserid,
             'post_username' => $req->postUsername,
             'sort' => $req->postSort,
@@ -46,7 +46,18 @@ class MyPostController extends Controller
             'catalog' => $req->postCatalog
         ]);
 
-        return redirect('/index'); //重新導向
-    }
 
+        // posts::where('id', '=', $req->postid)->update([
+        //     'post_user_id' => $req->postUserid,
+        //     'post_username' => $req->postUsername,
+        //     'sort' => $req->postSort,
+        //     'area' => $req->postArea,
+        //     'wanna_teach' => $req->postWannaTeach,
+        //     'wanna_learn' => $req->postWannaLearn,
+        //     'body' => $req->postBody,
+        //     'catalog' => $req->postCatalog
+        // ]);
+
+        return redirect('/mypost'); //重新導向
+    }
 }

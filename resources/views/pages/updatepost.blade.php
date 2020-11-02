@@ -13,14 +13,14 @@
 
 <body>
 
-  @include('includes.menu')
+@include('includes.menu')
 @foreach ($wannaupdateposts as $wannaupdatepost)
   <div class="container">
-    <form id="postForm" class="container" method="get" action="/addPost/">
+    <form id="postForm" class="container" method="get" action="/updatedPost/">
     @csrf
     <div style="display:none">
       <label for="postid"></label>
-      <textarea id="postid" name="postUsername" rows="1" value="postid">{{ $wannaupdatepost -> id }}</textarea>
+      <textarea id="postid" name="postid" rows="1" value="postid">{{ $wannaupdatepost -> id }}</textarea>
     </div>
     <div style="display:none">
       <label for="postUsername"></label>
