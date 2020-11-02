@@ -26,4 +26,27 @@ class MyPostController extends Controller
         return redirect('/index'); //重新導向
     }
 
+    public function wannaUpdate($id)
+    {
+        $wannaupdateposts = DB::table("posts")->where('id', '=', $id)->get();
+        return view("pages.updatepost", compact('wannaupdateposts'));
+    }
+
+    public function updatePost(Request $req)
+    { //Request是一個模組，把資料拿過來用
+
+        DB::table("posts")->where('id', '=', 'postid')->update([
+            'post_user_id' => $req->postUserid,
+            'post_username' => $req->postUsername,
+            'sort' => $req->postSort,
+            'area' => $req->postArea,
+            'wanna_teach' => $req->postWannaTeach,
+            'wanna_learn' => $req->postWannaLearn,
+            'body' => $req->postBody,
+            'catalog' => $req->postCatalog
+        ]);
+
+        return redirect('/index'); //重新導向
+    }
+
 }
