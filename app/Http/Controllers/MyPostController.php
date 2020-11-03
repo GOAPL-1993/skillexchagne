@@ -46,18 +46,6 @@ class MyPostController extends Controller
             'catalog' => $req->postCatalog
         ]);
 
-
-        // posts::where('id', '=', $req->postid)->update([
-        //     'post_user_id' => $req->postUserid,
-        //     'post_username' => $req->postUsername,
-        //     'sort' => $req->postSort,
-        //     'area' => $req->postArea,
-        //     'wanna_teach' => $req->postWannaTeach,
-        //     'wanna_learn' => $req->postWannaLearn,
-        //     'body' => $req->postBody,
-        //     'catalog' => $req->postCatalog
-        // ]);
-
         return redirect('/mypost'); //重新導向
     }
 }
