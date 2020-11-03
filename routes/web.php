@@ -35,7 +35,7 @@ Route::get('/delete/{id}/', [MyPostController::class, 'delete']);
 Route::get('/updatepost/{id}/', [MyPostController::class, 'wannaUpdate']);
 Route::get('/updatedPost', [MyPostController::class, 'updatePost'])->name('updatePost');
 Route::get('/', [AboutUsController::class, 'aboutUs']);
+Route::get('/search/{catalog}', [SearchController::class, 'search']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-

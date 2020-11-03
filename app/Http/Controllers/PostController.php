@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -42,6 +41,6 @@ class PostController extends Controller
     public function showPost()
     {
         $posts = DB::table("posts")->get();
-        return view('pages.index', compact( 'posts'));
+        return view('pages.index', compact('posts'));
     }
 }
