@@ -7,12 +7,17 @@ use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
-    public function search()
+    public function search($catalog)
     {
-        $searchposts = DB::table("posts")->get();
-        if ($_SERVER['REQUEST_METHOD'] == "GET") {
-            search($searchposts);
-        }
-        return view('pages.search', compact('searchposts'));
+        $searchdata = DB::table("posts")->where('catalog', '=', $catalog)->get();
+        $searchposts['data'] = $searchdata;
+        echo json_encode($searchposts);
+        exit;
+        // return view('pages.search', compact('searchposts'));
+    }
+
+    public function getthere()
+    {
+        return view('pages.search');
     }
 }
