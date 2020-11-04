@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 
+$DATABASE = parse_url('postgres://anbzmyuinyoslc:a0c80806a2de253b9af7e1910fa34e448035c62510e936072d93d6f1c892d038@ec2-52-44-235-121.compute-1.amazonaws.com:5432/d9ts8i0bn0lm7m');
 return [
 
     /*
@@ -15,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -123,7 +124,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [
