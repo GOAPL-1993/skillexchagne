@@ -56,12 +56,12 @@ mytitle
           }
           if (len > 0) {
             for (var i = 0; i < len; i++) {
-              var post_username = response['data'].post_username;
-              var sort = response['data'].sort;
-              var area = response['data'].area;
-              var wanna_teach = response['data'].wanna_teach;
-              var wanna_learn = response['data'].wanna_learn;
-              var body = response['data'].body;
+              var post_username = response['data'][catalog].post_username;
+              var sort = response['data'][catalog].sort;
+              var area = response['data'][catalog].area;
+              var wanna_teach = response['data'][catalog].wanna_teach;
+              var wanna_learn = response['data'][catalog].wanna_learn;
+              var body = response['data'][catalog].body;
             }
           }
         },
