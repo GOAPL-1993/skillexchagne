@@ -19,8 +19,8 @@ mytitle
         <hr>
       </ul>
       <p class="card-text">{{$post -> body}}</p>
-      <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
-      <button type="button" class="btn btn-outline-info btn-sm">收藏</button>
+      <button type="button" class="btn btn-outline-danger btn-sm"><img src="/images/icon3.png"></button>
+      <button type="button" class="btn btn-outline-info btn-sm"><img src="/images/icon4.png"></button>
       <button type="button" class="btn btn-dark btn-sm">發訊息</button>
     </div>
   </div>
