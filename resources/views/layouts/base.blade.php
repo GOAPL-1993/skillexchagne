@@ -11,7 +11,6 @@
   <title>@yield('title')</title>
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="images/png" href="/images/icon2.png" />
 
   <!-- Styles -->
   <style>
@@ -399,10 +398,8 @@
 
   @include('includes.menu')
 
-  @include('includes.catalog')
   @yield('content')
 
-  @include('includes.footer')
 
 
 

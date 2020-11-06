@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -15,5 +16,5 @@ class AboutUsController extends Controller
             $username = $user->name;
         }
         return view('pages.aboutus');
-}
+    }
 }
