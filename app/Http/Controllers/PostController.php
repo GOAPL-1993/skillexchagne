@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Http\Controllers\posts;
 
 class PostController extends Controller
 {
@@ -34,8 +35,11 @@ class PostController extends Controller
             'wanna_learn' => $req->postWannaLearn,
             'body' => $req->postBody,
             'catalog' => $req->postCatalog
-        ]);
 
+        ]);
+        $post = DB::table("posts")->get();
+        $post->save();
+        return response()->json($post);
         return redirect('/index'); //重新導向
     }
     public function showPost()

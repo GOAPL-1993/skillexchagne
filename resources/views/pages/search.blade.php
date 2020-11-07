@@ -10,10 +10,10 @@ mytitle
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <meta name='csrf-token' content='{{csrf_token()}}'>
-<!-- <form>
-  @forelse 
+<form>
+  @forelse ($searchposts as $searchpost )
   <div class='content' style='margin-left:20% ; height:85% '>
-    <div class="card" style="width: 18rem;float:left">
+    <div class="card" style="width: 18rem;float:left" id="postCard">
       <div class="card-body">
         <h5 class="card-title">{{$searchpost -> post_username}}</h5>
         <ul class="list-group list-group-flush">
@@ -32,43 +32,43 @@ mytitle
   </div>
   @empty
   <h2>no post</h2>
-  @endsection
   @endforelse
-</form> -->
-<script type="text/javascript">
-  var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-  $(document).ready(function() {
-    $("#searchPostForm").click(function() {
-      $.ajax({
-        data: $('#searchPostForm').serialize(),
-        url: 'search/{catalog}',
-        async: true,
-        type: "POST",
-        dataType: "json",
-        data: {
-          _token: CSRF_TOKEN,
-          id: id
-        },
-        success: function(response) {
-          var len = 0;
-          if (response['data'] != null) {
-            len = response['data'].length;
-          }
-          if (len > 0) {
-            for (var i = 0; i < len; i++) {
-              var post_username = response['data'][catalog].post_username;
-              var sort = response['data'][catalog].sort;
-              var area = response['data'][catalog].area;
-              var wanna_teach = response['data'][catalog].wanna_teach;
-              var wanna_learn = response['data'][catalog].wanna_learn;
-              var body = response['data'][catalog].body;
-            }
-          }
-        },
-        error: function(jqXHR) {
-          alert("發生錯誤: " + jqXHR.status);
+</form>
+
+<script>
+  $('#postForm').submit(function(e) {
+    e.preventDfault();
+
+    var post_username = $('#post_username').val();
+    var sort = $('#sort').val();
+    var area = $('#area').val();
+    var wanna_teach = $('#wanna_teach').val();
+    var wanna_learn = $('#wanna_learn').val();
+    var body = $('#body').val();
+    let _token = $("input[name=_token]").val();
+
+    $.ajax({
+      url: '/addPost',
+      type: "POST",
+      data: {
+        post_username: post_username,
+        sort: sort,
+        area: area,
+        wanna_teach: wanna_teach,
+        wanna_learn: wanna_learn,
+        body: body,
+        _token: _token
+      },
+      success: function(response) {
+        if (response) {
+          $("#postCard").prepend('<ul><li>' + response.post_username + '</li><li>' + response.sort + '</li><li>' + response.wanna_teach + '</li><li>' + response.wanna_learn + '</li></ul><p>' + response.body + '</p>');
+          $("#postForm")[0].reset();
+          // $("#postModal").modal('hide');
         }
-      })
+      }
+
     })
+
   })
 </script>
+@endsection

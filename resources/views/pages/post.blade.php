@@ -59,17 +59,14 @@
       <div class="form-group col-7">
         <label for="postWannaTeach">擅長技能</label>
         <textarea class="form-control" id="postWannaTeach" name="postWannaTeach" rows="1" required></textarea>
-        <span style="color:red">@error('name'){{$wanna_teach}} @enderror</span>
       </div>
       <div class="form-group col-7">
         <label for="postWannaLearn">想學習技能</label>
         <textarea class="form-control" id="postWannaLearn" name="postWannaLearn" rows="1" required></textarea>
-        <span style="color:red">@error('name'){{$wanna_teach}} @enderror</span>
       </div>
       <div class="form-group col-7">
         <label for="postBody">交換內容及方式</label>
         <textarea class="form-control" id="postBody" name="postBody" rows="3" required></textarea>
-        <span style="color:red">@error('name'){{$wanna_learn}} @enderror</span>
       </div>
       <div class="form-group col-7">
         <label for="postCatalog">擅長技能標籤</label>
@@ -87,7 +84,6 @@
           <option>前端程式</option>
           <option>後端程式</option>
         </select>
-        <span style="color:red">@error('name'){{$catalog}} @enderror</span>
       </div>
       <div class="post-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="self.location.href='/index'">取消</button>
