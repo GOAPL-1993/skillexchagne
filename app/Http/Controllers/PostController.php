@@ -38,8 +38,7 @@ class PostController extends Controller
 
         ]);
         $post = DB::table("posts")->get();
-        $post->save();
-        return response()->json($post);
+        // return response()->json($post);
         return redirect('/index'); //重新導向
     }
     public function showPost()

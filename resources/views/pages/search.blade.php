@@ -39,12 +39,12 @@ mytitle
   $('#postForm').submit(function(e) {
     e.preventDfault();
 
-    var post_username = $('#post_username').val();
-    var sort = $('#sort').val();
-    var area = $('#area').val();
-    var wanna_teach = $('#wanna_teach').val();
-    var wanna_learn = $('#wanna_learn').val();
-    var body = $('#body').val();
+    let post_username = $('#post_username').val();
+    let sort = $('#sort').val();
+    let area = $('#area').val();
+    let wanna_teach = $('#wanna_teach').val();
+    let wanna_learn = $('#wanna_learn').val();
+    let body = $('#body').val();
     let _token = $("input[name=_token]").val();
 
     $.ajax({
@@ -63,7 +63,7 @@ mytitle
         if (response) {
           $("#postCard").prepend('<ul><li>' + response.post_username + '</li><li>' + response.sort + '</li><li>' + response.wanna_teach + '</li><li>' + response.wanna_learn + '</li></ul><p>' + response.body + '</p>');
           $("#postForm")[0].reset();
-          // $("#postModal").modal('hide');
+          $("#postModal").modal('hide');
         }
       }
 
