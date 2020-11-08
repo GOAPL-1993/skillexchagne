@@ -41,6 +41,7 @@ Route::get('/updatedPost', [MyPostController::class, 'updatePost'])->name('updat
 Route::get('/', [AboutUsController::class, 'aboutUs']);
 
 Route::get('/search/{catalog}', [SearchController::class, 'search'])->name('search');
+Route::get('/search', [SearchController::class, 'searchArea'])->name('searchArea');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

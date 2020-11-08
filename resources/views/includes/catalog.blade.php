@@ -1,27 +1,27 @@
 <div class="container">
   <div class="list-group sidebar-left" style="text-align:center;width:25%;float:left">
-    <form class="form-inline my-2 my-lg-1" style="width:10% ;float:left">
-      <select class="custom-select">
+    <form class="form-inline my-2 my-lg-1" style="width:10% ;float:left" method="GET" action="/search/">
+      <select class="custom-select" name="searchArea">
         <option selected>地區搜尋</option>
-        <option value="1">新北市</option>
-        <option value="2">台北市</option>
-        <option value="3">基隆市</option>
-        <option value="4">桃園市</option>
-        <option value="5">新竹縣</option>
-        <option value="6">新竹市</option>
-        <option value="7">苗栗縣</option>
-        <option value="8">台中市</option>
-        <option value="9">彰化縣</option>
-        <option value="10">雲林縣</option>
-        <option value="11">南投縣</option>
-        <option value="12">嘉義縣</option>
-        <option value="13">嘉義市</option>
-        <option value="14">台南市</option>
-        <option value="15">高雄市</option>
-        <option value="16">屏東縣</option>
-        <option value="17">台東縣</option>
-        <option value="18">花蓮縣</option>
-        <option value="19">宜蘭縣</option>
+        <option name="新北市">新北市</option>
+        <option name="台北市">台北市</option>
+        <option name="基隆市">基隆市</option>
+        <option name="桃園市">桃園市</option>
+        <option name="新竹縣">新竹縣</option>
+        <option name="新竹市">新竹市</option>
+        <option name="苗栗縣">苗栗縣</option>
+        <option name="台中市">台中市</option>
+        <option name="彰化縣">彰化縣</option>
+        <option name="雲林縣">雲林縣</option>
+        <option name="南投縣">南投縣</option>
+        <option name="嘉義縣">嘉義縣</option>
+        <option name="嘉義市">嘉義市</option>
+        <option name="台南市">台南市</option>
+        <option name="高雄市">高雄市</option>
+        <option name="屏東縣">屏東縣</option>
+        <option name="台東縣">台東縣</option>
+        <option name="花蓮縣">花蓮縣</option>
+        <option name="宜蘭縣">宜蘭縣</option>
       </select>
       <!-- <input class="form-control mr-sm-1" type="技能關鍵字" placeholder="技能關鍵字" aria-label="技能關鍵字"> -->
       <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
