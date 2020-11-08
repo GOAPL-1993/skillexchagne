@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\MyPostController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 

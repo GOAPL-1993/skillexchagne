@@ -10,7 +10,7 @@ class MessageController extends Controller
 {
     public function getTalk(Request $req)
     {
-        $messages = DB::table("posts")->where('id', '=', $req->wannaTalk)->get();
+        $messages = DB::table("posts")->where('post_user_id', '=', $req->wannaTalk)->get();
         return view("pages.message", compact('messages'));
     }
 }
