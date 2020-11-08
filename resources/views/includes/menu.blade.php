@@ -35,7 +35,7 @@ use Illuminate\Support\Facades\Auth;
             <a class="nav-link" href="{{ url('/post') }}">發表文章</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/') }}">聊天室</a>
+            <a class="nav-link" href="{{ url('/message') }}">聊天室</a>
           </li>
           @auth
           <li class="nav-item dropdown">
