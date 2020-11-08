@@ -18,7 +18,7 @@ class CreatePostConnectTable extends Migration
             $table->integer('post_id');
             $table->integer('user_id');
             $table->string("URL");
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

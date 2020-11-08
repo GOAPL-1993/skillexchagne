@@ -12,6 +12,10 @@ mytitle
 <meta name='csrf-token' content='{{csrf_token()}}'>
 <form id='searchPostForm'>
   @forelse ($searchposts as $searchpost )
+  <div style="display:none">
+    <label for="postUsername"></label>
+    <textarea id="postUsername" name="postUsername" rows="1">{{$searchpost -> post_user_id}}</textarea>
+  </div>
   <div class='content' style='margin-left:20% ; height:85% '>
     <div class="card" style="width: 18rem;float:left" id="postCard">
       <div class="card-body">

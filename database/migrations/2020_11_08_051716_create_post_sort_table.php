@@ -17,7 +17,7 @@ class CreatePostSortTable extends Migration
         Schema::create('post_sort', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
         });
         DB::insert('insert into post_sort (name) values (?)', ['交換技能']);
         DB::insert('insert into post_sort (name) values (?)', ['找老師']);

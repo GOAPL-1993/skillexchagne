@@ -43,7 +43,7 @@ class MyPostController extends Controller
             'wanna_teach' => $req->postWannaTeach,
             'wanna_learn' => $req->postWannaLearn,
             'body' => $req->postBody,
-            'catalog' => $req->postCatalog
+            'catalog' => $req->postCatalog,
         ]);
 
         return redirect('/mypost'); //重新導向

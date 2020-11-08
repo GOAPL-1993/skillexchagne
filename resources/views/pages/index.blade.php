@@ -7,7 +7,12 @@ mytitle
 @csrf
 @forelse ($posts as $post)
 @csrf
-<div class='content' style='margin-left:20% ; height:85% '>
+
+<div style="display:none">
+  <label for="postUsername"></label>
+  <textarea id="postUsername" name="postUsername" rows="1" name='wannaTalk' value='wannaTalk'>{{$post -> post_user_id}}</textarea>
+</div>
+<div class='content' style='margin-left:20% ; height:85%' method="GET" action="/message/">
   <div class="card" style="width: 18rem;float:left">
     <div class="card-body">
       <h5 class="card-title">{{$post -> post_username}}</h5>
@@ -21,7 +26,7 @@ mytitle
       <p class="card-text">{{$post -> body}}</p>
       <button type="button" class="btn btn-outline-danger btn-sm"><img src="/images/icon3.png"></button>
       <button type="button" class="btn btn-outline-info btn-sm"><img src="/images/icon4.png"></button>
-      <button type="button" class="btn btn-dark btn-sm">發訊息</button>
+      <button type="submit" class="btn btn-dark btn-sm">發訊息</button>
     </div>
   </div>
 </div>

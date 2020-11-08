@@ -17,7 +17,7 @@ class CreatePostAreaTable extends Migration
         Schema::create('post_area', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
         });
         DB::insert('insert into post_area (name) values (?)', ['新北市']);
         DB::insert('insert into post_area (name) values (?)', ['台北市']);

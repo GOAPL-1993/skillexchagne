@@ -15,10 +15,10 @@ class CreateMessageTable extends Migration
     {
         Schema::create('message', function (Blueprint $table) {
             $table->id();
-            $table->integer('post_id');
             $table->integer('user_id');
+            $table->integer('talkto_user_id');
             $table->string("message");
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

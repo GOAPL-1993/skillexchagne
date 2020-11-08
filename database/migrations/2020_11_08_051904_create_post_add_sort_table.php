@@ -15,7 +15,7 @@ class CreatePostAddSortTable extends Migration
     {
         Schema::create('post_add_sort', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
