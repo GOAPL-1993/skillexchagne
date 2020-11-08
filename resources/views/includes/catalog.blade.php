@@ -23,11 +23,10 @@
         <option value="18">花蓮縣</option>
         <option value="19">宜蘭縣</option>
       </select>
-      <input class="form-control mr-sm-1" type="技能關鍵字" placeholder="技能關鍵字" aria-label="技能關鍵字">
-
+      <!-- <input class="form-control mr-sm-1" type="技能關鍵字" placeholder="技能關鍵字" aria-label="技能關鍵字"> -->
       <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    <div class="component" id="searchPostForm">
+    </form id="searchPostForm">
+    <div class="component">
       <div style="width:70%">
         <a href="/search/英文" class="list-group-item list-group-item-action list-group-item-dark"><img src="/images/eng1.png" style="position:absolute;left:10px">英文</a>
         <a href="/search/日文" class="list-group-item list-group-item-action list-group-item-dark"><img src="/images/jap1.png" style="position:absolute;left:10px">日文</a>

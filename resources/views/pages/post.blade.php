@@ -26,7 +26,7 @@
       </div>
       <div class="form-group col-7">
         <label for="postSort">類別</label>
-        <select class="form-control" id="postSort" name="postSort" required>
+        <select class="form-control" id="postSortId" value="postSortId" name="postSort" required>
           <option>交換技能</option>
           <option>找老師</option>
           <option>找學生</option>
@@ -34,7 +34,7 @@
       </div>
       <div class="form-group col-7">
         <label for="postArea">地點</label>
-        <select class="form-control" id="postArea" name="postArea" required>
+        <select class="form-control" id="postAreaId" value="postAreaId" name="postArea" required>
           <option>新北市</option>
           <option>台北市</option>
           <option>基隆市</option>
@@ -70,7 +70,7 @@
       </div>
       <div class="form-group col-7">
         <label for="postCatalog">擅長技能標籤</label>
-        <select multiple class="form-control" id="postCatalog" name="postCatalog" required>
+        <select multiple class="form-control" id="postCatalogId" value="postCatalogId" name="postCatalog" required>
           <option>英文</option>
           <option>日文</option>
           <option>韓文</option>

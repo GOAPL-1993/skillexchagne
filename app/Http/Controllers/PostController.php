@@ -34,7 +34,7 @@ class PostController extends Controller
             'wanna_teach' => $req->postWannaTeach,
             'wanna_learn' => $req->postWannaLearn,
             'body' => $req->postBody,
-            'catalog' => $req->postCatalog
+            'catalog' => $req->postCatalog,
 
         ]);
         $post = DB::table("posts")->get();
