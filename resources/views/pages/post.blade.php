@@ -14,7 +14,7 @@
 
   @include('includes.menu')
   <div class="container">
-    <form id="postForm" class="container was-validated" method="get" action="/addPost/">
+    <form id="postForm" class="container was-validated" style="margin-left:20%" method="get" action="/addPost/">
       @csrf
       <div style="display:none">
         <label for="postUsername"></label>

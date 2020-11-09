@@ -56,14 +56,14 @@ class MessageController extends Controller
 
     public function getTalkName()
     {
-
         $user = Auth::user();
-        $id = Auth::id();
-        $username = $user->name;
         $user_id = $user->id;
         $talkto_user_id = DB::table("message")
             ->where('user_id', '=', $user_id)->value('talkto_user_id');
         $talkto_usernames = DB::table("users")
-            ->where('id', '=', $talkto_user_id)->value('name');
+            ->where('id', '=', $talkto_user_id)
+            ->orderBy('created_at', 'desc')
+            ->value('name');
+        return view("includes.talktocatalog", compact('talkto_usernames'));
     }
 }

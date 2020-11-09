@@ -46,6 +46,7 @@ Route::get('/search', [SearchController::class, 'searchArea'])->name('searchArea
 
 Route::get('/message', [MessageController::class, 'getTalk'])->name('getTalk');
 Route::get('/addMessage', [MessageController::class, 'addMessage'])->name('addMessage');
+// Route::get('/message', [MessageController::class, 'getTalkName'])->name('getTalkName');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

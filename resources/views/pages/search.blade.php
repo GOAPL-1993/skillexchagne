@@ -15,11 +15,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   @forelse ($searchposts as $searchpost )
-  <!-- <div style="display:none">
-      <label for="postUsername"></label>
-      <textarea id="postUsername" name="postUsername" rows="1">{{$searchpost -> post_user_id}}</textarea>
-    </div> -->
-  <div class='content' style='margin-left:20% ; height:85%'>
+  <div class='content' style='margin-left:20% ; height:85%;float:left'>
     <div class="card" style="width: 18rem;float:left" id="postCard">
       <div class="card-body">
         <form method="GET" action="/message/">

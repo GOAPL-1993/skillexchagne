@@ -15,43 +15,58 @@
     @include('includes.menu')
     @include('includes.talktocatalog')
     <div class="container">
-        <div style="margin-left:18% ; height:85% ; width:82% ; float:left">
-            <form action="/addMessage/" style="float:left">
-                <div style="display:none">
-                    <label for="wannaTalk"></label>
-                    <textarea id="wannaTalk" rows="1" name='wannaTalk' value='wannaTalk'>{{$wannaTalk}}</textarea>
-                </div>
-                <div style="display:none">
-                    <label for="user_id"></label>
-                    <textarea id="user_id" rows="1" name='user_id' value='user_id'>{{$user_id}}</textarea>
-                </div>
-                <input type="text" placeholder="一起交換吧！" name="message">
-                <button type="submit" class="btn btn-dark">傳送</button>
-            </form>
-            <table class="table table-hover table-dark" style="float:left">
-                <thead>
-                    <tr>
-                        <th scope="co2">You are talking to {{$talkto_username}} now.</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($messages as $message)
-                    <tr>
-                        <td>{{$message -> message}}</td>
-                        <!-- <td>{{$message -> created_at}}</td> -->
-                    </tr>
-                    @empty
-                    <th scope="co1">no message</th>
-                    @endforelse
-                </tbody>
-            </table>
+        <div style="margin-left:18% ; height:85% ; width:82% ">
+            <div style="float:left ; width:89% ">
+                <table class="table table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <form action="/addMessage/">
+                                <div style="display:none">
+                                    <label for="wannaTalk"></label>
+                                    <textarea id="wannaTalk" rows="1" name='wannaTalk' value='wannaTalk'>{{$wannaTalk}}</textarea>
+                                </div>
+                                <div style="display:none">
+                                    <label for="user_id"></label>
+                                    <textarea id="user_id" rows="1" name='user_id' value='user_id'>{{$user_id}}</textarea>
+                                </div>
+                                <input type="text" placeholder="一起交換吧！" name="message">
+                                <button type="submit" class="btn btn-dark">傳送</button>
+                            </form>
+                            <th scope="co1">You are talking to {{$talkto_username}} now.
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($messages as $message)
+                        <tr>
+                            <td>
+                                @if($message->user_id == $user_id)
+                                <div style="text-align:left;">
+                                    {{$message -> message}}
+                                </div>
+                                @else
+                                <div style="text-align:right;">
+                                    {{$message -> message}}
+                                </div>
+                                @endif
+                            </td>
+                        </tr>
+                        @empty
+                        <th scope="co2">no message</th>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-<!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 
 </html>
