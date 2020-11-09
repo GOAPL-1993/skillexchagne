@@ -16,9 +16,6 @@ class MessageController extends Controller
         $wannaTalk = $req->wannaTalk;
         $user_id = Auth::id();
         $messages = DB::table("message")
-            // ->where('talkto_user_id', '=', $req->wannaTalk)
-
-
             ->where(function ($query1) use ($wannaTalk, $user_id) {
                 $query1->where('talkto_user_id', '=', $wannaTalk)
                     ->where('user_id', '=', $user_id);
@@ -27,11 +24,8 @@ class MessageController extends Controller
                 $query2->where('talkto_user_id', '=', $user_id)
                     ->where('user_id', '=', $wannaTalk);
             })
-
-
             ->orderBy('id', 'desc')
             ->get();
-
         return view("pages.message", compact('user_id', 'wannaTalk', 'messages', 'talkto_username'));
     }
 
@@ -46,11 +40,7 @@ class MessageController extends Controller
         $talkto_username = DB::table("users")->where('id', '=', $req->wannaTalk)->value('name');
         $wannaTalk = $req->wannaTalk;
         $user_id = Auth::id();
-        // $messages = DB::table("message")->where('talkto_user_id', '=', $req->wannaTalk)->orderBy('id', 'desc')->get();
         $messages = DB::table("message")
-            // ->where('talkto_user_id', '=', $req->wannaTalk)
-
-
             ->where(function ($query1) use ($wannaTalk, $user_id) {
                 $query1->where('talkto_user_id', '=', $wannaTalk)
                     ->where('user_id', '=', $user_id);
@@ -59,10 +49,21 @@ class MessageController extends Controller
                 $query2->where('talkto_user_id', '=', $user_id)
                     ->where('user_id', '=', $wannaTalk);
             })
-
-
             ->orderBy('id', 'desc')
             ->get();
         return view("pages.message", compact('user_id', 'wannaTalk', 'messages', 'talkto_username'));
+    }
+
+    public function getTalkName()
+    {
+
+        $user = Auth::user();
+        $id = Auth::id();
+        $username = $user->name;
+        $user_id = $user->id;
+        $talkto_user_id = DB::table("message")
+            ->where('user_id', '=', $user_id)->value('talkto_user_id');
+        $talkto_usernames = DB::table("users")
+            ->where('id', '=', $talkto_user_id)->value('name');
     }
 }
