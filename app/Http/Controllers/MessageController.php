@@ -16,23 +16,23 @@ class MessageController extends Controller
         $wannaTalk = $req->wannaTalk;
         $user_id = Auth::id();
         $messages = DB::table("message")
-            // ->where('talkto_user_id', '=', $req->wannaTalk)
+            ->where('talkto_user_id', '=', $req->wannaTalk)
 
 
-            ->where(function ($query1) {
-                $user_id = Auth::id();
-                global $wannaTalk;
+            // ->where(function ($query1) {
+            //     $user_id = Auth::id();
+            //     global $wannaTalk;
 
-                $query1->where('talkto_user_id', '=', $wannaTalk)
-                    ->where('user_id', '=', $user_id);
-            })
-            ->orWhere(function ($query2) {
-                $user_id = Auth::id();
-                global $wannaTalk;
+            //     $query1->where('talkto_user_id', '=', $wannaTalk)
+            //         ->where('user_id', '=', $user_id);
+            // })
+            // ->orWhere(function ($query2) {
+            //     $user_id = Auth::id();
+            //     global $wannaTalk;
 
-                $query2->where('talkto_user_id', '=', $user_id)
-                    ->where('user_id', '=', $wannaTalk);
-            })
+            //     $query2->where('talkto_user_id', '=', $user_id)
+            //         ->where('user_id', '=', $wannaTalk);
+            // })
 
 
             ->orderBy('id', 'desc')
