@@ -31,15 +31,14 @@
             <table class="table table-hover table-dark">
                 <thead>
                     <tr>
-                        <th scope="co2">{{$talkto_username}}{{$wannaTalk}}
-                            {{$user_id}}</th>
+                        <th scope="co2">You are talking to {{$talkto_username}} now.</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($messages as $message)
                     <tr>
                         <td>{{$message -> message}}</td>
-                        <td>{{$message -> created_at}}</td>
+                        <!-- <td>{{$message -> created_at}}</td> -->
                     </tr>
                     @empty
                     <th scope="co1">no message</th>
