@@ -11,21 +11,16 @@
 </head>
 
 <body>
+
     <div class="container">
         <div class="list-group sidebar-left" style="text-align:center;width:25%;float:left">
-
-            @forelse($talkto_usernames as $talkto_username)
-            @csrf
-            <div style="width:70%;float:left">
-                <a href="#" class="list-group-item list-group-item-action list-group-item-dark">
-                    {{$talkto_username}}
-                </a>
-            </div>
-            @empty
-            <h2>haven't talk to anyone.</h2>
-            @endforelse
+            <select class="custom-select col-8" name="searchArea">
+                <option selected>選擇朋友</option>
+                <option href="#" name="user1">user1</option>
+                <option href="#" name="user2">user2</option>
+                <option href="#" name="user3">user3</option>
+            </select>
         </div>
-    </div>
 </body>
 
 </html>
