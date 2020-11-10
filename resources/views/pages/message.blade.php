@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <!-- <link rel="icon" type="images/png" href="/images/icon2.png" /> -->
+    <style>
+        .sidebar-left {
+            position: relative;
+            left: 30px;
+            top: 75px;
+            z-index: 10;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,7 +33,7 @@
                         <label for="wannaTalk"></label>
                         <textarea id="wannaTalk" rows="1" name='wannaTalk' value='wannaTalk'>{{$talkto_user_all->id}}</textarea>
                     </div>
-                    <div style="width:70%">
+                    <div style="width:60%">
                         <button type="submit" class="list-group-item list-group-item-action list-group-item-light" value="submit">{{$talkto_user_all->name}}</button>
                     </div>
                 </form>
@@ -35,7 +43,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" style="padding-top:56px ; padding-bottom:90px">
         <div style="margin-left:18% ; height:85% ; width:82% ">
             <div style="float:left ; width:89% ">
                 <table class="table table-hover table-dark">

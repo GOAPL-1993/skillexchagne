@@ -1,3 +1,11 @@
+<style>
+  .sidebar-left {
+    position: relative;
+    left: 30px;
+    top: 75px;
+    z-index: 10;
+  }
+</style>
 <div class="container">
   <div class="list-group sidebar-left" style="text-align:center;width:25%;float:left">
     <form class="form-inline my-2 my-lg-1" style="width:10% ;float:left" method="GET" action="/search/">
@@ -27,7 +35,7 @@
       <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
     </form id="searchPostForm">
     <div class="component">
-      <div style="width:70%">
+      <div style="width:60%">
         <a href="/search/英文" class="list-group-item list-group-item-action list-group-item-light"><img src="/images/eng1.png" style="position:absolute;left:10px">英文</a>
         <a href="/search/日文" class="list-group-item list-group-item-action list-group-item-light"><img src="/images/jap1.png" style="position:absolute;left:10px">日文</a>
         <a href="/search/韓文" class="list-group-item list-group-item-action list-group-item-light"><img src="/images/kor1.png" style="position:absolute;left:10px">韓文</a>

@@ -13,7 +13,7 @@
 
 <body>
   @include('includes.menu')
-  <div class="container">
+  <div class="container" style="padding-top:56px ; padding-bottom:90px">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
