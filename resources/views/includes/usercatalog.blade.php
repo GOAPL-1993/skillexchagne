@@ -11,8 +11,9 @@
 
 
     <div style="width:60%">
+      <a href="{{ url('/user/profile') }}" class="list-group-item list-group-item-action list-group-item">個人資料</a>
       <a href="{{ url('/mypost') }}" class="list-group-item list-group-item-action list-group-item">我的貼文</a>
-      <a href="#" class="list-group-item list-group-item-action list-group-item">我的收藏</a>
+      <a href="#" class="list-group-item list-group-item-action list-group-item">讚過的文章</a>
     </div>
   </div>
 </div>

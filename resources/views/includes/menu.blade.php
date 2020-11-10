@@ -24,7 +24,6 @@ use Illuminate\Support\Facades\Auth;
 
 <body>
 
-  <!-- <div style="z-index: 10; position: fixed"> -->
   <div class="container navbar-fixed-top">
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="{{ url('/index') }}">學習交換平台</a>
@@ -33,7 +32,6 @@ use Illuminate\Support\Facades\Auth;
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/') }}">關於我們</a>
           </li>
@@ -46,24 +44,18 @@ use Illuminate\Support\Facades\Auth;
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/message') }}">聊天室</a>
           </li>
-
+        </ul>
       </div>
-      </li>
-      </ul>
       @auth
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="/#/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?php
-            $user = Auth::user();
-            $login_username = $user->name;
-            echo $login_username;
-            ?>
+            {{ Auth::user()->name }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{ route('profile.show') }}">個人資料</a>
             <a class="dropdown-item" href="{{ url('/mypost') }}">我的貼文</a>
-            <a class="dropdown-item" href="#">我的收藏</a>
+            <a class="dropdown-item" href="#">讚過的文章</a>
             <div class="dropdown-divider"></div>
             @if (Route::has('login'))
             @auth
@@ -75,21 +67,23 @@ use Illuminate\Support\Facades\Auth;
             @endif
             @endif
             @endif
-            @endauth
-            @guest
+          </div>
+        </li>
+      </ul>
+      @endauth
+      @guest
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="{{ url('/login') }}">登入</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ url('/register') }}">註冊</a>
         </li>
-        @endguest
-
       </ul>
+      @endguest
+
+    </nav>
   </div>
-  </nav>
-  </div>
-  <!-- </div> -->
 </body>
 
 </html>

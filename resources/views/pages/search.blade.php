@@ -34,7 +34,6 @@
           <p class="card-text">{{$searchpost -> body}}</p>
           <div style="float: right">
             <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
-            <button type="button" class="btn btn-outline-info btn-sm">收藏</button>
             <button type="submit" class="btn btn-dark btn-sm" value="submit">發訊息</button>
           </div>
         </form>
