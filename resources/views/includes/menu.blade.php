@@ -37,42 +37,45 @@ use Illuminate\Support\Facades\Auth;
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/message') }}">聊天室</a>
           </li>
-          @auth
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="/#/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <?php
-              $user = Auth::user();
-              $login_username = $user->name;
-              echo $login_username;
-              ?>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ route('profile.show') }}">個人資料</a>
-              <a class="dropdown-item" href="{{ url('/mypost') }}">我的貼文</a>
-              <a class="dropdown-item" href="#">我的收藏</a>
-              <div class="dropdown-divider"></div>
-              @if (Route::has('login'))
-              @auth
-              <a class="dropdown-item" href="{{ url('/logout') }}">登出</a>
-              @else
-              <a class="dropdown-item" href="{{ url('/login') }}">登入</a>
-              @if (Route::has('register'))
-              <a class="dropdown-item" href="{{ url('/register') }}">註冊</a>
-              @endif
-              @endif
-              @endif
-              @endauth
-              @guest
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('/login') }}">登入</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('/register') }}">註冊</a>
-          </li>
-          @endguest
 
       </div>
       </li>
+      </ul>
+      @auth
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/#/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <?php
+            $user = Auth::user();
+            $login_username = $user->name;
+            echo $login_username;
+            ?>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('profile.show') }}">個人資料</a>
+            <a class="dropdown-item" href="{{ url('/mypost') }}">我的貼文</a>
+            <a class="dropdown-item" href="#">我的收藏</a>
+            <div class="dropdown-divider"></div>
+            @if (Route::has('login'))
+            @auth
+            <a class="dropdown-item" href="{{ url('/logout') }}">登出</a>
+            @else
+            <a class="dropdown-item" href="{{ url('/login') }}">登入</a>
+            @if (Route::has('register'))
+            <a class="dropdown-item" href="{{ url('/register') }}">註冊</a>
+            @endif
+            @endif
+            @endif
+            @endauth
+            @guest
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('/login') }}">登入</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('/register') }}">註冊</a>
+        </li>
+        @endguest
+
       </ul>
   </div>
   </nav>
