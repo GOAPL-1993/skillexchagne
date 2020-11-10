@@ -14,28 +14,18 @@
 <body>
     @include('includes.menu')
     @csrf
-
-
-
-
     <div class="container">
         <div class="list-group sidebar-left" style="text-align:center;width:25%;float:left">
             <div class="component">
                 @foreach ($talkto_usernames_all as $talkto_username_all)
                 @csrf
                 <div style="width:70%">
-                    <a href="/search/英文" class="list-group-item list-group-item-action list-group-item-light">{{$talkto_username_all}}</a>
+                    <a href="/message/" class="list-group-item list-group-item-action list-group-item-light">{{$talkto_username_all}}</a>
                 </div>
                 @endforeach
             </div>
         </div>
     </div>
-
-
-
-
-
-
 
     <div class="container">
         <div style="margin-left:18% ; height:85% ; width:82% ">
@@ -52,11 +42,22 @@
                                     <label for="user_id"></label>
                                     <textarea id="user_id" rows="1" name='user_id' value='user_id'>{{$user_id}}</textarea>
                                 </div>
+                                @if($wannaTalk !== NULL)
                                 <input type="text" placeholder="一起交換吧！" name="message" size="77">
                                 <button type="submit" class="btn btn-dark">傳送</button>
+                                @else
+                                <br>
+                                @endif
+
                             </form>
+                            @if($wannaTalk !== NULL)
                             <th scope="co1">You are talking to {{$talkto_username}} now.
                             </th>
+                            @else
+                            <th scope="co1">select an friend on the left hand side.
+                            </th>
+                            @endif
+
                         </tr>
                     </thead>
                     <tbody>

@@ -81,7 +81,14 @@ class MessageController extends Controller
             })
             ->orderBy('id', 'desc')
             ->get();
-        return view("pages.message", compact('user_id', 'wannaTalk', 'messages', 'talkto_username'));
+
+        $talkto_usernames_all = DB::table("message")
+            ->join('users', 'message.talkto_user_id', '=', 'users.id')
+            ->where('message.user_id', '=', $user_id)
+            ->groupBy('name')
+            ->pluck('name');
+
+        return view("pages.message", compact('user_id', 'wannaTalk', 'messages', 'talkto_username', 'talkto_usernames_all'));
     }
 
     // public function getTalkName()
