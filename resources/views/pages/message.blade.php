@@ -17,10 +17,10 @@
     <div class="container">
         <div class="list-group sidebar-left" style="text-align:center;width:25%;float:left">
             <div class="component">
-                @foreach ($talkto_usernames_all as $talkto_username_all)
+                @foreach ($talkto_users_all as $talkto_user_all)
                 @csrf
                 <div style="width:70%">
-                    <a href="/message/" class="list-group-item list-group-item-action list-group-item-light">{{$talkto_username_all}}</a>
+                    <a href="/message/" class="list-group-item list-group-item-action list-group-item-light">{{$talkto_user_all}}</a>
                 </div>
                 @endforeach
             </div>

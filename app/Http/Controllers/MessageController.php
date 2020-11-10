@@ -31,18 +31,10 @@ class MessageController extends Controller
             ->orderBy('id', 'desc')
             ->get();
 
-
-
-        // $talkto_user_id_all = DB::table("message")
-        //     ->where('user_id', '=', $user_id)
-        //     ->pluck('talkto_user_id');
-        // $talkto_usernames_all = DB::table("users")
-        //     ->where('id', '=', $talkto_user_id_all)
-        //     ->orderBy('created_at', 'desc')
-        //     ->pluck('name');
-        $talkto_usernames_all = DB::table("message")
+        $talkto_users_all = DB::table("message")
             ->join('users', 'message.talkto_user_id', '=', 'users.id')
             ->where('message.user_id', '=', $user_id)
+            // ->orderBy('message.created_at', 'desc')
             ->groupBy('name')
             ->pluck('name');
 
@@ -51,10 +43,10 @@ class MessageController extends Controller
         // from message msg
         // INNER JOIN users us2 on us2.id = msg.talkto_user_id
         // WHERE msg.user_id =1');
+        // 以上為郭先生示範
 
 
-
-        return view("pages.message", compact('user_id', 'wannaTalk', 'messages', 'talkto_username', 'talkto_usernames_all'));
+        return view("pages.message", compact('user_id', 'wannaTalk', 'messages', 'talkto_username', 'talkto_users_all'));
     }
 
     public function addMessage(Request $req)
@@ -82,13 +74,15 @@ class MessageController extends Controller
             ->orderBy('id', 'desc')
             ->get();
 
-        $talkto_usernames_all = DB::table("message")
+        $talkto_users_all = DB::table("message")
             ->join('users', 'message.talkto_user_id', '=', 'users.id')
             ->where('message.user_id', '=', $user_id)
+            // ->orderBy('message.created_at', 'desc')
             ->groupBy('name')
             ->pluck('name');
 
-        return view("pages.message", compact('user_id', 'wannaTalk', 'messages', 'talkto_username', 'talkto_usernames_all'));
+
+        return view("pages.message", compact('user_id', 'wannaTalk', 'messages', 'talkto_username', 'talkto_users_all'));
     }
 
     // public function getTalkName()
