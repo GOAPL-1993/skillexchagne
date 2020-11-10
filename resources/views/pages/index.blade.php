@@ -8,8 +8,8 @@
 @forelse ($posts as $post)
 @csrf
 
-<div class='content' style='margin-left:20% ; height:85% ; padding-top:70px'>
-  <div class="card" style="width: 40rem ; float:left">
+<div class='content' style='height:85% ; padding-top:70px ; position:sticky'>
+  <div class="card" style="width: 40rem ; float:right ; margin-right:17%">
     <div class="card-body">
       <form method="GET" action="/message/">
         <div style="display:none">
