@@ -19,10 +19,17 @@
             <div class="component">
                 @foreach ($talkto_users_all as $talkto_user_all)
                 @csrf
-                <div style="width:70%">
-                    {{$talkto_user_all->id}}
-                    <a href="/message/wannaTalk={{$talkto_user_all->id}}/" class="list-group-item list-group-item-action list-group-item-light">{{$talkto_user_all->name}}</a>
-                </div>
+                <form action="/message/">
+
+                    <div style="display:none">
+                        <label for="wannaTalk"></label>
+                        <textarea id="wannaTalk" rows="1" name='wannaTalk' value='wannaTalk'>{{$talkto_user_all->id}}</textarea>
+                    </div>
+                    <div style="width:70%">
+                        <button type="submit" class="list-group-item list-group-item-action list-group-item-light" value="submit">{{$talkto_user_all->name}}</button>
+                    </div>
+                </form>
+
                 @endforeach
             </div>
         </div>
