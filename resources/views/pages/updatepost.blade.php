@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -13,22 +12,22 @@
 
 <body>
 
-@include('includes.menu')
-@foreach ($wannaupdateposts as $wannaupdatepost)
+  @include('includes.menu')
+  @foreach ($wannaupdateposts as $wannaupdatepost)
   <div class="container">
     <form id="postForm" class="container was-validated" method="get" action="/updatedPost/">
-    @csrf
-    <div style="display:none">
-      <label for="postid"></label>
-      <textarea id="postid" name="postid" rows="1" value="postid">{{ $wannaupdatepost -> id }}</textarea>
-    </div>
-    <div style="display:none">
-      <label for="postUsername"></label>
-      <textarea id="postUsername" name="postUsername" rows="1" value="postUsername">{{ $wannaupdatepost -> post_username }}</textarea>
-    </div>
-    <div style="display:none">
-      <label for="postUserid"></label>
-      <textarea id="postUserid" name="postUserid" rows="1" value="postUserid">{{ $wannaupdatepost -> post_user_id }}</textarea>
+      @csrf
+      <div style="display:none">
+        <label for="postid"></label>
+        <textarea id="postid" name="postid" rows="1" value="postid">{{ $wannaupdatepost -> id }}</textarea>
+      </div>
+      <div style="display:none">
+        <label for="postUsername"></label>
+        <textarea id="postUsername" name="postUsername" rows="1" value="postUsername">{{ $wannaupdatepost -> post_username }}</textarea>
+      </div>
+      <div style="display:none">
+        <label for="postUserid"></label>
+        <textarea id="postUserid" name="postUserid" rows="1" value="postUserid">{{ $wannaupdatepost -> post_user_id }}</textarea>
       </div>
       <div class="form-group col-7">
         <label for="postSort">類別</label>
@@ -101,7 +100,7 @@
       </div>
     </form>
   </div>
-@endforeach
+  @endforeach
 
 </body>
 

@@ -11,16 +11,22 @@
 </head>
 
 <body>
+    @if(!empty(@if(!empty($talkto_usernames))))
+
+    @forelse ($talkto_usernames as $talkto_username)
     <div class="container">
         <div class="list-group sidebar-left" style="text-align:center;width:25%;float:left">
             <div class="component">
                 <div style="width:70%">
-                    <a href="/search/英文" class="list-group-item list-group-item-action list-group-item-light"><img src="/images/eng1.png" style="position:absolute;left:10px"></a>
-
+                    <a href="/search/英文" class="list-group-item list-group-item-action list-group-item-light"><img src="/images/eng1.png" style="position:absolute;left:10px">{{$talkto_username}}</a>
                 </div>
             </div>
         </div>
     </div>
+    @empty
+    <h2>not chatted yet</h2>
+    @endforelse
+    @endif
 </body>
 
 </html>

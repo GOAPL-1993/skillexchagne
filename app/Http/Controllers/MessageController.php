@@ -15,18 +15,46 @@ class MessageController extends Controller
         $talkto_username = DB::table("users")->where('id', '=', $req->wannaTalk)->value('name');
         $wannaTalk = $req->wannaTalk;
         $user_id = Auth::id();
+
+
         $messages = DB::table("message")
             ->where(function ($query1) use ($wannaTalk, $user_id) {
-                $query1->where('talkto_user_id', '=', $wannaTalk)
+                $query1
+                    ->where('talkto_user_id', '=', $wannaTalk)
                     ->where('user_id', '=', $user_id);
             })
             ->orWhere(function ($query2) use ($wannaTalk, $user_id) {
-                $query2->where('talkto_user_id', '=', $user_id)
+                $query2
+                    ->where('talkto_user_id', '=', $user_id)
                     ->where('user_id', '=', $wannaTalk);
             })
             ->orderBy('id', 'desc')
             ->get();
-        return view("pages.message", compact('user_id', 'wannaTalk', 'messages', 'talkto_username'));
+
+
+
+        // $talkto_user_id_all = DB::table("message")
+        //     ->where('user_id', '=', $user_id)
+        //     ->pluck('talkto_user_id');
+        // $talkto_usernames_all = DB::table("users")
+        //     ->where('id', '=', $talkto_user_id_all)
+        //     ->orderBy('created_at', 'desc')
+        //     ->pluck('name');
+        $talkto_usernames_all = DB::table("message")
+            ->join('users', 'message.talkto_user_id', '=', 'users.id')
+            ->where('message.user_id', '=', $user_id)
+            ->groupBy('name')
+            ->pluck('name');
+
+        // $talkto_usernames_all = DB::select('SELECT  distinct
+        // us2.name
+        // from message msg
+        // INNER JOIN users us2 on us2.id = msg.talkto_user_id
+        // WHERE msg.user_id =1');
+
+
+
+        return view("pages.message", compact('user_id', 'wannaTalk', 'messages', 'talkto_username', 'talkto_usernames_all'));
     }
 
     public function addMessage(Request $req)
@@ -42,11 +70,13 @@ class MessageController extends Controller
         $user_id = Auth::id();
         $messages = DB::table("message")
             ->where(function ($query1) use ($wannaTalk, $user_id) {
-                $query1->where('talkto_user_id', '=', $wannaTalk)
+                $query1
+                    ->where('talkto_user_id', '=', $wannaTalk)
                     ->where('user_id', '=', $user_id);
             })
             ->orWhere(function ($query2) use ($wannaTalk, $user_id) {
-                $query2->where('talkto_user_id', '=', $user_id)
+                $query2
+                    ->where('talkto_user_id', '=', $user_id)
                     ->where('user_id', '=', $wannaTalk);
             })
             ->orderBy('id', 'desc')
@@ -54,16 +84,17 @@ class MessageController extends Controller
         return view("pages.message", compact('user_id', 'wannaTalk', 'messages', 'talkto_username'));
     }
 
-    public function getTalkName()
-    {
-        $user = Auth::user();
-        $user_id = $user->id;
-        $talkto_user_id = DB::table("message")
-            ->where('user_id', '=', $user_id)->value('talkto_user_id');
-        $talkto_usernames = DB::table("users")
-            ->where('id', '=', $talkto_user_id)
-            ->orderBy('created_at', 'desc')
-            ->value('name');
-        return view("includes.talktocatalog", compact('talkto_usernames'));
-    }
+    // public function getTalkName()
+    // {
+    //     $user = Auth::user();
+    //     $user_id = $user->id;
+    //     $talkto_user_id = DB::table("message")
+    //         ->where('user_id', '=', $user_id)
+    //         ->value('talkto_user_id');
+    //     $talkto_usernames = DB::table("users")
+    //         ->where('id', '=', $talkto_user_id)
+    //         ->orderBy('created_at', 'desc')
+    //         ->value('name');
+    //     return view("includes.talktocatalog", compact('talkto_usernames'));
+    // }
 }
