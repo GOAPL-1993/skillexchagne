@@ -18,7 +18,7 @@
   @forelse ($myposts as $mypost)
   @csrf
   <div class='content' style='margin-left:20% ; height:85% '>
-    <div class="card" style="width: 18rem;float:left">
+    <div class="card" style="width: 40rem;float:left">
       <div class="card-body">
         <h5 class="card-title">{{$mypost -> post_username}}</h5>
         <ul class="list-group list-group-flush">
