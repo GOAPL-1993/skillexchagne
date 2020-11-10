@@ -11,8 +11,8 @@
 
 
     <div style="width:60%">
-      <a href="#" class="list-group-item list-group-item-action list-group-item-dark">我的貼文</a>
-      <a href="#" class="list-group-item list-group-item-action list-group-item-dark">我的收藏</a>
+      <a href="{{ url('/mypost') }}" class="list-group-item list-group-item-action list-group-item">我的貼文</a>
+      <a href="#" class="list-group-item list-group-item-action list-group-item">我的收藏</a>
     </div>
   </div>
 </div>
