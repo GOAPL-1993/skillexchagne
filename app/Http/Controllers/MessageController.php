@@ -35,8 +35,10 @@ class MessageController extends Controller
             ->join('users', 'message.talkto_user_id', '=', 'users.id')
             ->where('message.user_id', '=', $user_id)
             // ->orderBy('message.created_at', 'desc')
-            ->groupBy('name')
-            ->pluck('name');
+            ->groupBy('users.name', 'users.id')
+            ->get([
+                'users.name', 'users.id'
+            ]);
 
         // $talkto_usernames_all = DB::select('SELECT  distinct
         // us2.name
@@ -78,9 +80,10 @@ class MessageController extends Controller
             ->join('users', 'message.talkto_user_id', '=', 'users.id')
             ->where('message.user_id', '=', $user_id)
             // ->orderBy('message.created_at', 'desc')
-            ->groupBy('name')
-            ->pluck('name');
-
+            ->groupBy('users.name', 'users.id')
+            ->get([
+                'users.name', 'users.id'
+            ]);
 
         return view("pages.message", compact('user_id', 'wannaTalk', 'messages', 'talkto_username', 'talkto_users_all'));
     }

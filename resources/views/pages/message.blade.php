@@ -20,7 +20,8 @@
                 @foreach ($talkto_users_all as $talkto_user_all)
                 @csrf
                 <div style="width:70%">
-                    <a href="/message/" class="list-group-item list-group-item-action list-group-item-light">{{$talkto_user_all}}</a>
+                    {{$talkto_user_all->id}}
+                    <a href="/message/wannaTalk={{$talkto_user_all->id}}/" class="list-group-item list-group-item-action list-group-item-light">{{$talkto_user_all->name}}</a>
                 </div>
                 @endforeach
             </div>
