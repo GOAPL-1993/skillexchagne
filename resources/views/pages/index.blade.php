@@ -26,7 +26,8 @@
         </ul>
         <p class="card-text">{{$post -> body}}</p>
         <div style="float: right">
-          <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
+          <input type="button" id="evaluateScoreButton" class="btn btn-outline-danger btn-sm" value="按讚!">
+          <input type="button" id="evaluateScoreButton" class="btn btn-danger btn-sm" value="按讚!">
           <button type="submit" class="btn btn-dark btn-sm" value="submit">發訊息</button>
         </div>
       </form>
