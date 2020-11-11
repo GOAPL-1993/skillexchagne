@@ -14,7 +14,7 @@ class CreatePostTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('post', function (Blueprint $table) {
             $table->id();
             $table->integer('post_user_id');
             $table->string('sort');
