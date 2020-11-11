@@ -12,43 +12,59 @@ class MessageController extends Controller
 {
     public function getTalk(Request $req)
     {
-        $talkto_username = DB::table("users")->where('id', '=', $req->wannaTalk)->value('name');
-        $wannaTalk = $req->wannaTalk;
-        $user_id = Auth::id();
+        if (Auth::check()) {
+            $talkto_username = DB::table("users")->where('id', '=', $req->wannaTalk)->value('name');
+            $wannaTalk = $req->wannaTalk;
+            $user_id = Auth::id();
 
 
-        $messages = DB::table("message")
-            ->where(function ($query1) use ($wannaTalk, $user_id) {
-                $query1
-                    ->where('talkto_user_id', '=', $wannaTalk)
-                    ->where('user_id', '=', $user_id);
-            })
-            ->orWhere(function ($query2) use ($wannaTalk, $user_id) {
-                $query2
-                    ->where('talkto_user_id', '=', $user_id)
-                    ->where('user_id', '=', $wannaTalk);
-            })
-            ->orderBy('id', 'desc')
-            ->get();
+            $messages = DB::table("message")
+                ->where(function ($query1) use ($wannaTalk, $user_id) {
+                    $query1
+                        ->where('talkto_user_id', '=', $wannaTalk)
+                        ->where('user_id', '=', $user_id);
+                })
+                ->orWhere(function ($query2) use ($wannaTalk, $user_id) {
+                    $query2
+                        ->where('talkto_user_id', '=', $user_id)
+                        ->where('user_id', '=', $wannaTalk);
+                })
+                ->orderBy('id', 'desc')
+                ->get();
 
-        $talkto_users_all = DB::table("message")
-            ->join('users', 'message.talkto_user_id', '=', 'users.id')
-            ->where('message.user_id', '=', $user_id)
-            // ->orderBy('message.created_at', 'desc')
-            ->groupBy('users.name', 'users.id')
-            ->get([
-                'users.name', 'users.id'
-            ]);
-
-        // $talkto_usernames_all = DB::select('SELECT  distinct
-        // us2.name
-        // from message msg
-        // INNER JOIN users us2 on us2.id = msg.talkto_user_id
-        // WHERE msg.user_id =1');
-        // 以上為郭先生示範
+            // $talkto_original_users_all = DB::table("message")
+            //     ->where('message.user_id', '=', $user_id)
+            //     ->join('users', 'message.talkto_user_id', '=', 'users.id')
+            //     ->groupBy('users.name', 'users.id')
+            //     ->get([
+            //         'users.name', 'users.id'
+            //     ]);
 
 
-        return view("pages.message", compact('user_id', 'wannaTalk', 'messages', 'talkto_username', 'talkto_users_all'));
+            $talkto_users_all = DB::table("message")
+                ->where('message.talkto_user_id', '=', $user_id)
+                ->join('users', 'message.user_id', '=', 'users.id')
+                ->groupBy('users.name', 'users.id')
+                ->get([
+                    'users.name', 'users.id'
+                ]);
+
+
+
+
+
+            // $talkto_usernames_all = 
+            // SELECT  distinct us2.name
+            // from message msg
+            // INNER JOIN users us2 on us2.id = msg.talkto_user_id
+            // WHERE msg.user_id =1
+            // 以上為郭先生示範
+
+
+            return view("pages.message", compact('user_id', 'wannaTalk', 'messages', 'talkto_username', 'talkto_users_all'));
+        } else {
+            return view('auth.login');
+        }
     }
 
     public function addMessage(Request $req)
@@ -77,8 +93,9 @@ class MessageController extends Controller
             ->get();
 
         $talkto_users_all = DB::table("message")
-            ->join('users', 'message.talkto_user_id', '=', 'users.id')
             ->where('message.user_id', '=', $user_id)
+            // ->orWhere('message.talkto_user_id', '=', $user_id)
+            ->join('users', 'message.talkto_user_id', '=', 'users.id')
             // ->orderBy('message.created_at', 'desc')
             ->groupBy('users.name', 'users.id')
             ->get([

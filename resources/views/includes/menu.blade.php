@@ -35,9 +35,9 @@ use Illuminate\Support\Facades\Auth;
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/') }}">關於我們</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="{{ url('/') }}">數據分析</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/post') }}">發表文章</a>
           </li>

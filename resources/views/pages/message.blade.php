@@ -22,10 +22,12 @@
 <body>
     @include('includes.menu')
     @csrf
+
+
     <div class="container">
         <div class="list-group sidebar-left" style="text-align:center;width:25%;float:left">
             <div class="component">
-                @foreach ($talkto_users_all as $talkto_user_all)
+                @forelse ($talkto_users_all as $talkto_user_all)
                 @csrf
                 <form action="/message/">
 
@@ -37,35 +39,43 @@
                         <button type="submit" class="list-group-item list-group-item-action list-group-item-light" value="submit">{{$talkto_user_all->name}}</button>
                     </div>
                 </form>
-
-                @endforeach
+                @empty
+                <form action="/index/">
+                    <div style="width:60%">
+                        <button type="submit" class="list-group-item list-group-item-action list-group-item-light" value="submit">Not talked to anyone yet.</button>
+                    </div>
+                </form>
+                @endforelse
             </div>
         </div>
     </div>
 
+
+
     <div class="container" style="padding-top:56px ; padding-bottom:90px">
-        <div style="margin-left:18% ; height:85% ; width:82% ">
-            <div style="float:left ; width:89% ">
+        <div style="width: 40rem ; float:right ; margin-right:17%">
+            <div>
+
+                <form action="/addMessage/">
+                    <div style="display:none">
+                        <label for="wannaTalk"></label>
+                        <textarea id="wannaTalk" rows="1" name='wannaTalk' value='wannaTalk'>{{$wannaTalk}}</textarea>
+                    </div>
+                    <div style="display:none">
+                        <label for="user_id"></label>
+                        <textarea id="user_id" rows="1" name='user_id' value='user_id'>{{$user_id}}</textarea>
+                    </div>
+                    @if($wannaTalk !== NULL)
+                    <input type="text" placeholder="一起交換吧！" name="message" size="72">
+                    <button type="submit" class="btn btn-dark">傳送</button>
+                    @else
+                    <br>
+                    @endif
+                </form>
+
                 <table class="table table-hover table-dark">
                     <thead>
                         <tr>
-                            <form action="/addMessage/">
-                                <div style="display:none">
-                                    <label for="wannaTalk"></label>
-                                    <textarea id="wannaTalk" rows="1" name='wannaTalk' value='wannaTalk'>{{$wannaTalk}}</textarea>
-                                </div>
-                                <div style="display:none">
-                                    <label for="user_id"></label>
-                                    <textarea id="user_id" rows="1" name='user_id' value='user_id'>{{$user_id}}</textarea>
-                                </div>
-                                @if($wannaTalk !== NULL)
-                                <input type="text" placeholder="一起交換吧！" name="message" size="77">
-                                <button type="submit" class="btn btn-dark">傳送</button>
-                                @else
-                                <br>
-                                @endif
-
-                            </form>
                             @if($wannaTalk !== NULL)
                             <th scope="co1">You are talking to {{$talkto_username}} now.
                             </th>
