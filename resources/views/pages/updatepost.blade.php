@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>學習交換-發表文章</title>
+  <title>學習交換-修改文章</title>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
@@ -15,6 +15,21 @@
   @include('includes.menu')
   @foreach ($wannaupdateposts as $wannaupdatepost)
   <div class="container">
+<<<<<<< HEAD
+    <form id="postForm" class="container was-validated" style="margin-left:20%" method="get" action="/updatedPost/">
+    @csrf
+    <div style="display:none">
+      <label for="postid"></label>
+      <textarea id="postid" name="postid" rows="1" value="postid">{{ $wannaupdatepost -> id }}</textarea>
+    </div>
+    <div style="display:none">
+      <label for="postUsername"></label>
+      <textarea id="postUsername" name="postUsername" rows="1" value="postUsername">{{ $wannaupdatepost -> post_username }}</textarea>
+    </div>
+    <div style="display:none">
+      <label for="postUserid"></label>
+      <textarea id="postUserid" name="postUserid" rows="1" value="postUserid">{{ $wannaupdatepost -> post_user_id }}</textarea>
+=======
     <form id="postForm" class="container was-validated" method="get" action="/updatedPost/">
       @csrf
       <div style="display:none">
@@ -28,6 +43,7 @@
       <div style="display:none">
         <label for="postUserid"></label>
         <textarea id="postUserid" name="postUserid" rows="1" value="postUserid">{{ $wannaupdatepost -> post_user_id }}</textarea>
+>>>>>>> df3cd181ccdb06b7a58653532dd124f10dc5a3fb
       </div>
       <div class="form-group col-7">
         <label for="postSort">類別</label>
