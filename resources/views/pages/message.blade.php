@@ -8,50 +8,97 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <link rel="icon" type="images/png" href="/images/icon2.png" />
+    <!-- <link rel="icon" type="images/png" href="/images/icon2.png" /> -->
 </head>
 
 <body>
     @include('includes.menu')
-    @include('includes.talktocatalog')
+    @csrf
     <div class="container">
-        <div style="margin-left:18% ; height:85% ; width:82% ; float:left">
-            <form action="/addMessage/" style="float:left">
-                <div style="display:none">
-                    <label for="wannaTalk"></label>
-                    <textarea id="wannaTalk" rows="1" name='wannaTalk' value='wannaTalk'>{{$wannaTalk}}</textarea>
-                </div>
-                <div style="display:none">
-                    <label for="user_id"></label>
-                    <textarea id="user_id" rows="1" name='user_id' value='user_id'>{{$user_id}}</textarea>
-                </div>
-                <input type="text" placeholder="一起交換吧！" name="message">
-                <button type="submit" class="btn btn-dark">傳送</button>
-            </form>
-            <table class="table table-hover table-dark" style="float:left">
-                <thead>
-                    <tr>
-                        <th scope="co2">You are talking to {{$talkto_username}} now.</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($messages as $message)
-                    <tr>
-                        <td>{{$message -> message}}</td>
-                        <!-- <td>{{$message -> created_at}}</td> -->
-                    </tr>
-                    @empty
-                    <th scope="co1">no message</th>
-                    @endforelse
-                </tbody>
-            </table>
+        <div class="list-group sidebar-left" style="text-align:center;width:25%;float:left">
+            <div class="component">
+                @foreach ($talkto_users_all as $talkto_user_all)
+                @csrf
+                <form action="/message/">
+
+                    <div style="display:none">
+                        <label for="wannaTalk"></label>
+                        <textarea id="wannaTalk" rows="1" name='wannaTalk' value='wannaTalk'>{{$talkto_user_all->id}}</textarea>
+                    </div>
+                    <div style="width:70%">
+                        <button type="submit" class="list-group-item list-group-item-action list-group-item-light" value="submit">{{$talkto_user_all->name}}</button>
+                    </div>
+                </form>
+
+                @endforeach
+            </div>
         </div>
     </div>
-<!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <div class="container">
+        <div style="margin-left:18% ; height:85% ; width:82% ">
+            <div style="float:left ; width:89% ">
+                <table class="table table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <form action="/addMessage/">
+                                <div style="display:none">
+                                    <label for="wannaTalk"></label>
+                                    <textarea id="wannaTalk" rows="1" name='wannaTalk' value='wannaTalk'>{{$wannaTalk}}</textarea>
+                                </div>
+                                <div style="display:none">
+                                    <label for="user_id"></label>
+                                    <textarea id="user_id" rows="1" name='user_id' value='user_id'>{{$user_id}}</textarea>
+                                </div>
+                                @if($wannaTalk !== NULL)
+                                <input type="text" placeholder="一起交換吧！" name="message" size="77">
+                                <button type="submit" class="btn btn-dark">傳送</button>
+                                @else
+                                <br>
+                                @endif
+
+                            </form>
+                            @if($wannaTalk !== NULL)
+                            <th scope="co1">You are talking to {{$talkto_username}} now.
+                            </th>
+                            @else
+                            <th scope="co1">select an friend on the left hand side.
+                            </th>
+                            @endif
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($messages as $message)
+                        <tr>
+                            <td>
+                                @if($message->user_id == $user_id)
+                                <div style="text-align:left;">
+                                    {{$message -> message}}
+                                </div>
+                                @else
+                                <div style="text-align:right;">
+                                    {{$message -> message}}
+                                </div>
+                                @endif
+                            </td>
+                        </tr>
+                        @empty
+                        <th scope="co2">no message</th>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 
 </html>
