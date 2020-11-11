@@ -17,8 +17,13 @@
 
   @forelse ($myposts as $mypost)
   @csrf
+<<<<<<< HEAD
   <div class='content' style='margin-left:20% ; height:85% '>
     <div class="card" style="width: 40rem;float:left">
+=======
+  <div class='content' style='height:85% ; padding-top:70px'>
+    <div class="card" style="width: 40rem ; float:right ; margin-right:17%">
+>>>>>>> a1c1a517f580c327d529f2b0ea218187cebed0c4
       <div class="card-body">
         <h5 class="card-title">{{$mypost -> post_username}}</h5>
         <ul class="list-group list-group-flush">
@@ -30,8 +35,10 @@
         </ul>
         <p class="card-text">{{$mypost -> body}}</p>
         <!-- <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button> -->
-        <button type="button" class="btn btn-outline-info btn-sm" onclick="self.location.href='/updatepost/{{ $mypost->id }}/'">修改</button>
-        <button type="button" class="btn btn-dark btn-sm" onclick="self.location.href='/delete/{{ $mypost->id }}/'">刪除</button>
+        <div style="float: right">
+          <button type="button" class="btn btn-outline-info btn-sm" onclick="self.location.href='/updatepost/{{ $mypost->id }}/'">修改</button>
+          <button type="button" class="btn btn-dark btn-sm" onclick="self.location.href='/delete/{{ $mypost->id }}/'">刪除</button>
+        </div>
       </div>
     </div>
   </div>

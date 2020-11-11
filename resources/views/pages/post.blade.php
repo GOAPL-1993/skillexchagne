@@ -13,7 +13,7 @@
 <body>
 
   @include('includes.menu')
-  <div class="container">
+  <div class="container" style="padding-top:65px ; padding-bottom:90px">
     <form id="postForm" class="container was-validated" style="margin-left:20%" method="get" action="/addPost/">
       @csrf
       <div style="display:none">

@@ -15,8 +15,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   @forelse ($searchposts as $searchpost )
-  <div class='content' style='margin-left:20% ; height:85%;float:left'>
-    <div class="card" style="width: 18rem;float:left" id="postCard">
+  <div class='content' style='height:85% ; padding-top:70px'>
+    <div class="card" style="width: 40rem ; float:right ; margin-right:17%" id="postCard">
       <div class="card-body">
         <form method="GET" action="/message/">
           <div style="display:none">
@@ -32,9 +32,10 @@
             <hr>
           </ul>
           <p class="card-text">{{$searchpost -> body}}</p>
-          <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
-          <button type="button" class="btn btn-outline-info btn-sm">收藏</button>
-          <button type="submit" class="btn btn-dark btn-sm" value="submit">發訊息</button>
+          <div style="float: right">
+            <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
+            <button type="submit" class="btn btn-dark btn-sm" value="submit">發訊息</button>
+          </div>
         </form>
       </div>
     </div>

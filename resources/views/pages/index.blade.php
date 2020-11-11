@@ -8,8 +8,8 @@
 @forelse ($posts as $post)
 @csrf
 
-<div class='content' style='margin-left:20% ; height:85%'>
-  <div class="card" style="width: 40rem ; float:left">
+<div class='content' style='height:85% ; padding-top:70px ; position:sticky'>
+  <div class="card" style="width: 40rem ; float:right ; margin-right:17%">
     <div class="card-body">
       <form method="GET" action="/message/">
         <div style="display:none">
@@ -25,9 +25,10 @@
           <hr>
         </ul>
         <p class="card-text">{{$post -> body}}</p>
-        <button type="button" class="btn btn-outline-danger btn-sm"><img src="/images/icon3.png"></button>
-        <button type="button" class="btn btn-outline-info btn-sm"><img src="/images/icon4.png"></button>
-        <button type="submit" class="btn btn-dark btn-sm" value="submit">發訊息</button>
+        <div style="float: right">
+          <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
+          <button type="submit" class="btn btn-dark btn-sm" value="submit">發訊息</button>
+        </div>
       </form>
     </div>
   </div>
