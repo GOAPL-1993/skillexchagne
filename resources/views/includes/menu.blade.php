@@ -39,7 +39,7 @@ use Illuminate\Support\Facades\Auth;
             <a class="nav-link" href="{{ url('/') }}">數據分析</a>
           </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/post') }}">發表文章</a>
+            <a class="nav-link" href="{{ url('/post') }}">徵求交換</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/message') }}">聊天室</a>

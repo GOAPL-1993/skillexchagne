@@ -54,37 +54,34 @@
 
     <div class="container" style="padding-top:56px ; padding-bottom:90px">
         <div style="width: 40rem ; float:right ; margin-right:17%">
+            @if($wannaTalk !== NULL)
+            <h4>
+                You are talking to {{$talkto_username}} now.
+            </h4>
+            @else
+            <h4>
+                select an friend on the left hand side.
+            </h4>
+            @endif
             <div>
-
-                <form action="/addMessage/">
-                    <div style="display:none">
-                        <label for="wannaTalk"></label>
-                        <textarea id="wannaTalk" rows="1" name='wannaTalk' value='wannaTalk'>{{$wannaTalk}}</textarea>
-                    </div>
-                    <div style="display:none">
-                        <label for="user_id"></label>
-                        <textarea id="user_id" rows="1" name='user_id' value='user_id'>{{$user_id}}</textarea>
-                    </div>
-                    @if($wannaTalk !== NULL)
-                    <input type="text" placeholder="一起交換吧！" name="message" size="72">
-                    <button type="submit" class="btn btn-dark">傳送</button>
-                    @else
-                    <br>
-                    @endif
-                </form>
-
                 <table class="table table-hover table-dark">
                     <thead>
-                        <tr>
+                        <form action="/addMessage/">
+                            <div style="display:none">
+                                <label for="wannaTalk"></label>
+                                <textarea id="wannaTalk" rows="1" name='wannaTalk' value='wannaTalk'>{{$wannaTalk}}</textarea>
+                            </div>
+                            <div style="display:none">
+                                <label for="user_id"></label>
+                                <textarea id="user_id" rows="1" name='user_id' value='user_id'>{{$user_id}}</textarea>
+                            </div>
                             @if($wannaTalk !== NULL)
-                            <th scope="co1">You are talking to {{$talkto_username}} now.
-                            </th>
+                            <input type="text" placeholder="一起交換吧！" name="message" size="72">
+                            <button type="submit" class="btn btn-dark">傳送</button>
                             @else
-                            <th scope="co1">select an friend on the left hand side.
-                            </th>
+                            <br>
                             @endif
-
-                        </tr>
+                        </form>
                     </thead>
                     <tbody>
                         @forelse ($messages as $message)
