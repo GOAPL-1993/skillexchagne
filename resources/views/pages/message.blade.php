@@ -22,15 +22,13 @@
 <body>
     @include('includes.menu')
     @csrf
-
-
     <div class="container">
         <div class="list-group sidebar-left" style="text-align:center;width:25%;float:left">
+
             <div class="component">
                 @forelse ($talkto_users_all as $talkto_user_all)
                 @csrf
                 <form action="/message/">
-
                     <div style="display:none">
                         <label for="wannaTalk"></label>
                         <textarea id="wannaTalk" rows="1" name='wannaTalk' value='wannaTalk'>{{$talkto_user_all->id}}</textarea>
@@ -49,9 +47,6 @@
             </div>
         </div>
     </div>
-
-
-
     <div class="container" style="padding-top:56px ; padding-bottom:90px">
         <div style="width: 40rem ; float:right ; margin-right:17%">
             @if($wannaTalk !== NULL)

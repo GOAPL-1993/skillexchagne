@@ -27,9 +27,12 @@
           </ul>
           <p class="card-text">{{$post -> body}}</p>
           <div style="float: right">
-            <input type="button" id="evaluateScoreButton" class="btn btn-outline-danger btn-sm" value="按讚!">
+            <input type="button" id="evaluateScoreButton" onclick="self.location.href='/postdetail/{{$post -> id}}'" value="詳細內容">
             <!-- <input type="button" id="evaluateScoreButton" class="btn btn-danger btn-sm" value="按讚!"> -->
+            @if( Auth::user()->name !== $post -> post_username)
+            <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
             <button type="submit" class="btn btn-dark btn-sm" value="submit">發訊息</button>
+            @endif
           </div>
         </form>
       </div>
@@ -39,4 +42,6 @@
 @empty
 <h2>no post</h2>
 @endforelse
+<br>
+{{ $posts->links() }}
 @endsection

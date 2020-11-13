@@ -33,6 +33,7 @@ Route::get('/logout', [VideoPlayController::class, 'logout']);
 Route::get('/post', [PostController::class, 'post']);
 Route::get('/addPost', [PostController::class, 'addPost'])->name('addPost');
 Route::get('/index', [PostController::class, 'showPost'])->name('showPost');
+Route::get('/postdetail/{id}/', [PostController::class, 'showPostDetail'])->name('showPostDetail');
 
 Route::get('/mypost', [MyPostController::class, 'myPost'])->name('myPost');
 Route::get('/delete/{id}/', [MyPostController::class, 'delete']);

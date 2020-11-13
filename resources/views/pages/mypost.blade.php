@@ -17,7 +17,7 @@
 
   @forelse ($myposts as $mypost)
   @csrf
-  
+
   <div class='content' style='height:85% ; padding-top:70px'>
     <div class="card" style="width: 40rem ; float:right ; margin-right:17%">
       <div class="card-body">
@@ -33,6 +33,7 @@
         <!-- <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button> -->
         <div style="float: right">
           <button type="button" class="btn btn-outline-info btn-sm" onclick="self.location.href='/updatepost/{{ $mypost->id }}/'">修改</button>
+          <input type="button" id="evaluateScoreButton" onclick="self.location.href='/postdetail/{{$mypost -> id}}'" value="詳細內容">
           <button type="button" class="btn btn-dark btn-sm" onclick="self.location.href='/delete/{{ $mypost->id }}/'">刪除</button>
         </div>
       </div>
@@ -41,7 +42,8 @@
   @empty
   <h2>no post</h2>
   @endforelse
-
+  <br>
+  {{ $myposts->links() }}
 </body>
 
 </html>
