@@ -66,7 +66,6 @@
   </script>
 </body>
 <br>
-{{ $searchposts->links() }}
 
 
 </html>

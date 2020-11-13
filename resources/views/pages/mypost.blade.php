@@ -43,7 +43,6 @@
   <h2>no post</h2>
   @endforelse
   <br>
-  {{ $myposts->links() }}
 </body>
 
 </html>

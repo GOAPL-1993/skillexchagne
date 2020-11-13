@@ -2,11 +2,9 @@
     <div style="display:none">
 
         <x-slot name="title">
-            {{ __('Delete Account') }}
         </x-slot>
 
         <x-slot name="description">
-            {{ __('Permanently delete your account.') }}
         </x-slot>
     </div>
     <x-slot name="content">
@@ -25,14 +23,14 @@
 
         <x-jet-dialog-modal wire:model="confirmingUserDeletion">
             <x-slot name="title">
-                {{ __('Delete Account') }}
+                {{ __('刪除帳戶') }}
             </x-slot>
 
             <x-slot name="content">
-                {{ __('Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
+                {{ __('請輸入密碼以確認刪除') }}
 
                 <div class="mt-4" x-data="{}" x-on:confirming-delete-user.window="setTimeout(() => $refs.password.focus(), 250)">
-                    <x-jet-input type="password" class="mt-1 block w-3/4" placeholder="{{ __('Password') }}" x-ref="password" wire:model.defer="password" wire:keydown.enter="deleteUser" />
+                    <x-jet-input type="password" class="mt-1 block w-3/4" placeholder="{{ __('您的密碼') }}" x-ref="password" wire:model.defer="password" wire:keydown.enter="deleteUser" />
 
                     <x-jet-input-error for="password" class="mt-2" />
                 </div>
@@ -40,11 +38,11 @@
 
             <x-slot name="footer">
                 <x-jet-secondary-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
-                    {{ __('Nevermind') }}
+                    {{ __('先不要') }}
                 </x-jet-secondary-button>
 
                 <x-jet-danger-button class="ml-2" wire:click="deleteUser" wire:loading.attr="disabled">
-                    {{ __('Delete Account') }}
+                    {{ __('確認刪除') }}
                 </x-jet-danger-button>
             </x-slot>
         </x-jet-dialog-modal>

@@ -1,23 +1,21 @@
-<div style="border-color: white">
-    @include('includes.menu')
-    <x-app-layout>
-        <x-slot name="header">
-        </x-slot>
-        <div>
-            <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-                @livewire('profile.update-profile-information-form')
-                @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
-                <x-jet-section-border />
+@include('includes.menu')
+@include('includes.usercatalog')
+<x-app-layout>
+    <x-slot name="header">
+    </x-slot>
+    <div style="width:70% ; float:right ; margin-right:17% ">
 
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.update-password-form')
-                </div>
-                @endif
-                <x-jet-section-border />
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.delete-user-form')
-                </div>
-            </div>
-        </div>
-    </x-app-layout>
-</div>
+        @livewire('profile.update-profile-information-form')
+    </div>
+
+    @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
+
+    <div style="width:70% ; float:right ; margin-right:17% ; ">
+
+        @livewire('profile.update-password-form')
+    </div>
+    @endif
+    <div style="width:70% ; float:right ; margin-right:17% ; padding-bottom:100px">
+        @livewire('profile.delete-user-form')
+    </div>
+</x-app-layout>
