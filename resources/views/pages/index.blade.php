@@ -43,5 +43,4 @@
 <h2>no post</h2>
 @endforelse
 <br>
-{{ $posts->links() }}
 @endsection

@@ -1,17 +1,12 @@
 <x-jet-action-section>
-    <div style="display:none">
-
-        <x-slot name="title">
-        </x-slot>
-
-        <x-slot name="description">
-        </x-slot>
-    </div>
+    <x-slot name="title">
+    </x-slot>
+    <x-slot name="description">
+    </x-slot>
     <x-slot name="content">
         <div class="max-w-xl text-sm text-gray-600">
             {{ __('一旦刪除帳戶後，該帳戶的所有資料將全部遺失！') }}
         </div>
-
         <div class="mt-5">
             <x-jet-danger-button wire:click="confirmUserDeletion" wire:loading.attr="disabled">
                 {{ __('刪除帳戶') }}
