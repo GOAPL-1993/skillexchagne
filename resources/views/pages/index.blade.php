@@ -7,17 +7,11 @@
 @csrf
 @forelse ($posts as $post)
 @csrf
-<<<<<<< HEAD
-<div class='content' style='height:85% ; padding-top:70px ; position:sticky ; font-weight:bold'>
-  <div class="card" style="width: 40rem ; float:right ; margin-right:25%">
-    <div class="card-body">
-=======
 
 
 <div class="card-columns">
   <div class='content' style='padding-top:70px '>
     <div class="card " style="float:right">
->>>>>>> aaadc3e647ddab04e2e11abf8b972e500da970a9
       <form method="GET" action="/message/">
         <div style="display:none">
           <label for="wannaTalk"></label>
