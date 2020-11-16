@@ -8,9 +8,9 @@
 @forelse ($posts as $post)
 @csrf
 
-<div class='content' style='height:85% ; padding-top:70px ; position:sticky'>
-    <div style="width: 40rem">
-        <div class="card ; " style="  float:right ; margin-right:17% ; ">
+<div class='content' style='height:85% ; padding-top:70px'>
+    <div style="width: 7099rem">
+        <div class="card" style="float:right">
             <div class="card-body">
                 <form method="GET" action="/message/">
                     <div style="display:none">
@@ -28,7 +28,6 @@
                     <p class="card-text">{{$post -> body}}</p>
                     <div style="float: right">
                         <input type="button" id="evaluateScoreButton" class="btn btn-outline-danger btn-sm" value="按讚!">
-                        <!-- <input type="button" id="evaluateScoreButton" class="btn btn-danger btn-sm" value="按讚!"> -->
                         <button type="submit" class="btn btn-dark btn-sm" value="submit">發訊息</button>
                     </div>
                 </form>

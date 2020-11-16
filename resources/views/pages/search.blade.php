@@ -18,7 +18,7 @@
   <div>
     @forelse ($searchposts as $searchpost )
     <div class='content' style='height:85% ; padding-top:70px'>
-      <div class="card" style="width: 40rem ; float:right ; margin-right:17%" id="postCard">
+      <div class="card" style="width: 20rem ; float:right ; margin-right:17%" id="postCard">
         <div class="card-body">
           <form method="GET" action="/message/">
             <div style="display:none">
