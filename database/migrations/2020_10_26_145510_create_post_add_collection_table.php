@@ -17,7 +17,7 @@ class CreatePostAddCollectionTable extends Migration
             $table->id();
             $table->integer('post_id');
             $table->integer('user_id');
-            $table->string("post_collection_id");
+            $table->string('post_collection_id');
             $table->timestamp('created_at')->useCurrent();
         });
     }

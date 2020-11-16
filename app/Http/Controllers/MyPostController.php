@@ -15,8 +15,12 @@ class MyPostController extends Controller
             $user = Auth::user();
             $username = $user->name;
         }
+<<<<<<< HEAD
         $myposts = DB::table("posts")->where('post_username', '=', $username)
          ->get();
+=======
+        $myposts = DB::table("posts")->where('post_username', '=', $username)->get();
+>>>>>>> 5110f36074f63940cb3501e0162739f81c382906
         return view("pages.mypost", compact('myposts'));
     }
 
