@@ -18,8 +18,8 @@
   @forelse ($myposts as $mypost)
   @csrf
   
-  <div class='content' style='height:85% ; padding-top:70px'>
-    <div class="card" style="width: 40rem ; float:right ; margin-right:17%">
+  <div class='content' style='height:85% ; padding-top:70px ; font-weight:bold'>
+    <div class="card" style="width: 40rem ; float:right ; margin-right:25%">
       <div class="card-body">
         <h5 class="card-title">{{$mypost -> post_username}}</h5>
         <ul class="list-group list-group-flush">

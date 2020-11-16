@@ -41,13 +41,13 @@
       </a>
       <div class="carousel-item">
         <img src="..." alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>...</h5>
+        <div class="carousel-caption">
+          <h5></h5>
           <p>...</p>
         </div>
       </div>
     </div>
-
+    <a href="{{ url('/index') }}" class="btn btn-info btn-lg btn-block">進入首頁</a>
     <div class="row">
       <div class="col-sm-6">
         <div class="card">
@@ -66,7 +66,7 @@
         </div>
       </div>
     </div>
-    <a href="{{ url('/index') }}" class="btn btn-info">進入首頁</a>
+    
   </div>
 
 
