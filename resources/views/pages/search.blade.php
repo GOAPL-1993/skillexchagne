@@ -36,10 +36,16 @@
             <p class="card-text">{{$searchpost -> body}}</p>
             <div style="float: right">
               <input type="button" id="evaluateScoreButton" onclick="self.location.href='/postdetail/{{$searchpost -> id}}'" value="詳細內容">
-              @if( Auth::user()->name !== $searchpost -> post_username)
+              @auth
+              @if( Auth::user()->name !== $post -> post_username)
               <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
               <button type="submit" class="btn btn-dark btn-sm" value="submit">發訊息</button>
               @endif
+              @endauth
+              @guest
+              <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
+              <button type="submit" class="btn btn-dark btn-sm" value="submit">發訊息</button>
+              @endguest
             </div>
           </form>
         </div>
