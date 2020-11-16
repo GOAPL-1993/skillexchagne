@@ -7,11 +7,17 @@
 @csrf
 @forelse ($posts as $post)
 @csrf
+<<<<<<< HEAD
+<div class='content' style='height:85% ; padding-top:70px ; position:sticky ; font-weight:bold'>
+  <div class="card" style="width: 40rem ; float:right ; margin-right:25%">
+    <div class="card-body">
+=======
 
 
 <div class="card-columns">
   <div class='content' style='padding-top:70px '>
     <div class="card " style="float:right">
+>>>>>>> aaadc3e647ddab04e2e11abf8b972e500da970a9
       <form method="GET" action="/message/">
         <div style="display:none">
           <label for="wannaTalk"></label>
@@ -21,8 +27,8 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item">{{$post -> sort}}</li>
           <li class="list-group-item">{{$post -> area}}</li>
-          <li class="list-group-item">擅長科目<br> {{$post -> wanna_teach}}</li>
-          <li class="list-group-item">想學科目<br> {{$post -> wanna_learn}}</li>
+          <li class="list-group-item">擅長科目:<br> {{$post -> wanna_teach}}</li>
+          <li class="list-group-item">想學科目:<br> {{$post -> wanna_learn}}</li>
           <hr>
         </ul>
         <p class="card-text">{{$post -> body}}</p>
