@@ -17,7 +17,7 @@ class CreatePostBelongCatalogTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('post_id');
-            $table->string("catalog_id");
+            $table->string('catalog_id');
             $table->timestamp('created_at')->useCurrent();
         });
     }

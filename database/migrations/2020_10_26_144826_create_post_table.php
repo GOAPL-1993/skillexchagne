@@ -20,11 +20,11 @@ class CreatePostTable extends Migration
             $table->string('sort');
             $table->string('catalog');
             $table->string('area');
-            $table->string("post_username");
-            $table->string("wanna_teach");
-            $table->string("wanna_learn");
-            $table->string("body");
-            $table->string("likes")->default(0);
+            $table->string('post_username');
+            $table->string('wanna_teach');
+            $table->string('wanna_learn');
+            $table->string('body');
+            $table->string('likes')->default(0);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });

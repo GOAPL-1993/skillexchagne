@@ -17,7 +17,7 @@ class CreateMessageTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('talkto_user_id');
-            $table->string("message");
+            $table->string('message');
             $table->timestamp('created_at')->useCurrent();
         });
     }
