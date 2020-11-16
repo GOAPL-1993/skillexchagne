@@ -34,7 +34,7 @@
                         <textarea id="wannaTalk" rows="1" name='wannaTalk' value='wannaTalk'>{{$talkto_user_all->id}}</textarea>
                     </div>
                     <div style="width:60%">
-                        <button type="submit" class="list-group-item list-group-item-action list-group-item-light" value="submit">
+                        <button type="submit" class="list-group-item list-group-item-action list-group-item-light" value="submit"><img src="/images/fri1.png" style="position:absolute;left:10px">
                             {{$talkto_user_all->name}}
                         </button>
                     </div>

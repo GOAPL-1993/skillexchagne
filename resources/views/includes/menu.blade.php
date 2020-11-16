@@ -22,7 +22,7 @@
 
   <div class="container navbar-fixed-top">
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="{{ url('/index') }}">學習交換平台</a>
+      <a class="navbar-brand" href="{{ url('/index') }}"><img src="/images/hom1.png">學習交換平台</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

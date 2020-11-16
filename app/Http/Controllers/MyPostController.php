@@ -15,8 +15,8 @@ class MyPostController extends Controller
             $user = Auth::user();
             $username = $user->name;
         }
-        $myposts = DB::table("posts")->where('post_username', '=', $username)->paginate(1);
-        // ->get();
+        $myposts = DB::table("posts")->where('post_username', '=', $username)
+         ->get();
         return view("pages.mypost", compact('myposts'));
     }
 

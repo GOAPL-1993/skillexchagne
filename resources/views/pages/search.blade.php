@@ -17,8 +17,8 @@
 
   <div>
     @forelse ($searchposts as $searchpost )
-    <div class='content' style='height:85% ; padding-top:70px'>
-      <div class="card" style="width: 20rem ; float:right ; margin-right:17%" id="postCard">
+    <div class='content' style='height:85% ; padding-top:70px; position:sticky ; font-weight:bold'>
+      <div class="card" style="width: 40rem ; float:right ; margin-right:25%" id="postCard">
         <div class="card-body">
           <form method="GET" action="/message/">
             <div style="display:none">
@@ -37,7 +37,7 @@
             <div style="float: right">
               <input type="button" id="evaluateScoreButton" onclick="self.location.href='/postdetail/{{$searchpost -> id}}'" value="詳細內容">
               @auth
-              @if( Auth::user()->name !== $post -> post_username)
+              @if( Auth::user()->name !== $searchpost -> post_username)
               <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
               <button type="submit" class="btn btn-dark btn-sm" value="submit">發訊息</button>
               @endif
