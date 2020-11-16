@@ -32,26 +32,14 @@ class MessageController extends Controller
                 ->orderBy('id', 'desc')
                 ->get();
 
-            // $talkto_original_users_all = DB::table("message")
-            //     ->where('message.user_id', '=', $user_id)
-            //     ->join('users', 'message.talkto_user_id', '=', 'users.id')
-            //     ->groupBy('users.name', 'users.id')
-            //     ->get([
-            //         'users.name', 'users.id'
-            //     ]);
-
-
             $talkto_users_all = DB::table("message")
                 ->where('message.talkto_user_id', '=', $user_id)
+                ->orWhere('message.user_id', '=', $user_id)
                 ->join('users', 'message.user_id', '=', 'users.id')
                 ->groupBy('users.name', 'users.id')
                 ->get([
                     'users.name', 'users.id'
                 ]);
-
-
-
-
 
             // $talkto_usernames_all = 
             // SELECT  distinct us2.name
@@ -104,18 +92,4 @@ class MessageController extends Controller
 
         return view("pages.message", compact('user_id', 'wannaTalk', 'messages', 'talkto_username', 'talkto_users_all'));
     }
-
-    // public function getTalkName()
-    // {
-    //     $user = Auth::user();
-    //     $user_id = $user->id;
-    //     $talkto_user_id = DB::table("message")
-    //         ->where('user_id', '=', $user_id)
-    //         ->value('talkto_user_id');
-    //     $talkto_usernames = DB::table("users")
-    //         ->where('id', '=', $talkto_user_id)
-    //         ->orderBy('created_at', 'desc')
-    //         ->value('name');
-    //     return view("includes.talktocatalog", compact('talkto_usernames'));
-    // }
 }

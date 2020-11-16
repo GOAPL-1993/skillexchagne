@@ -17,9 +17,15 @@
 
   @forelse ($myposts as $mypost)
   @csrf
+<<<<<<< HEAD
   
   <div class='content' style='height:85% ; padding-top:70px ; font-weight:bold'>
     <div class="card" style="width: 40rem ; float:right ; margin-right:25%">
+=======
+
+  <div class='content' style='height:85% ; padding-top:70px'>
+    <div class="card" style="width: 40rem ; float:right ; margin-right:17%">
+>>>>>>> aaadc3e647ddab04e2e11abf8b972e500da970a9
       <div class="card-body">
         <h5 class="card-title">{{$mypost -> post_username}}</h5>
         <ul class="list-group list-group-flush">
@@ -33,6 +39,7 @@
         <!-- <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button> -->
         <div style="float: right">
           <button type="button" class="btn btn-outline-info btn-sm" onclick="self.location.href='/updatepost/{{ $mypost->id }}/'">修改</button>
+          <input type="button" id="evaluateScoreButton" onclick="self.location.href='/postdetail/{{$mypost -> id}}'" value="詳細內容">
           <button type="button" class="btn btn-dark btn-sm" onclick="self.location.href='/delete/{{ $mypost->id }}/'">刪除</button>
         </div>
       </div>
@@ -41,7 +48,7 @@
   @empty
   <h2>no post</h2>
   @endforelse
-
+  <br>
 </body>
 
 </html>

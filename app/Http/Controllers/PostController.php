@@ -43,7 +43,14 @@ class PostController extends Controller
     }
     public function showPost()
     {
-        $posts = DB::table("posts")->get();
+        $posts = DB::table("posts")->paginate(5);
+        // ->get();
+        return view('pages.index', compact('posts'));
+    }
+
+    public function showPostDetail($id)
+    {
+        $posts = DB::table("posts")->where('id', '=', $id)->get();
         return view('pages.index', compact('posts'));
     }
 }
