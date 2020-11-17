@@ -27,29 +27,40 @@ class PostController extends Controller
     { //Request是一個模組，把資料拿過來用
 
         DB::table("posts")->insert([
-            'post_user_id' => ['$req->postUserid'],
-            'post_username' => ['$req->postUsername'],
-            'sort' => ['$req->postSort'],
-            'area' => ['$req->postArea'],
-            'wanna_teach' => ['$req->postWannaTeach'],
-            'wanna_learn' => ['$req->postWannaLearn'],
-            'body' => ['$req->postBody'],
-            'catalog' => ['$req->postCatalog'],
+            'post_user_id' => $req['postUserid'],
+            'post_username' => $req['postUsername'],
+            'sort' => $req['postSort'],
+            'area' => $req['postArea'],
+            'wanna_teach' => $req['postWannaTeach'],
+            'wanna_learn' => $req['postWannaLearn'],
+            'body' => $req['postBody'],
+            'catalog' => $req['postCatalog'],
+
+            // 'post_user_id' => ['$req->postUserid'],
+            // 'post_username' => ['$req->postUsername'],
+            // 'sort' => ['$req->postSort'],
+            // 'area' => ['$req->postArea'],
+            // 'wanna_teach' => ['$req->postWannaTeach'],
+            // 'wanna_learn' => ['$req->postWannaLearn'],
+            // 'body' => ['$req->postBody'],
+            // 'catalog' => ['$req->postCatalog'],
+
+            // protected function updateVerifiedUser($user, array $input)
+            // {
+            //     $user->forceFill([
+            //         'name' => $input['name'],
+            //         'email' => $input['email'],
+            //         'email_verified_at' => null,
+            //     ])->save();
+
+            //     $user->sendEmailVerificationNotification();
+            // }
 
             // Validator::make($input, [
             //     'name' => ['required', 'string', 'max:255'],
             //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             //     'password' => $this->passwordRules(),
             // ])->validate();
-
-            // 'post_user_id' => "{$req->postUserid}",
-            // 'post_username' => "{$req->postUsername}",
-            // 'sort' => "{$req->postSort}",
-            // 'area' => "{$req->postArea}",
-            // 'wanna_teach' => "{$req->postWannaTeach}",
-            // 'wanna_learn' => "{$req->postWannaLearn}",
-            // 'body' => "{$req->postBody}",
-            // 'catalog' => "{$req->postCatalog}",
 
         ]);
         $post = DB::table("posts")->get();
