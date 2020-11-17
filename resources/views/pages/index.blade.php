@@ -25,7 +25,7 @@
         </ul>
         <p class="card-text">{{$post -> body}}</p>
         <div style="float: right">
-          <input type="button" id="evaluateScoreButton" onclick="self.location.href='/postdetail/{{$post -> id}}'" value="詳細內容">
+          <input type="button" class="btn btn-warning btn-sm" id="evaluateScoreButton" onclick="self.location.href='/postdetail/{{$post -> id}}'" value="詳細內容">
           @auth
           @if( Auth::user()->name !== $post -> post_username)
           <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
