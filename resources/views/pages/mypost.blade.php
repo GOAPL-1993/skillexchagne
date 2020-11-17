@@ -33,7 +33,7 @@
         <!-- <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button> -->
         <div style="float: right">
           <button type="button" class="btn btn-outline-info btn-sm" onclick="self.location.href='/updatepost/{{ $mypost->id }}/'">修改</button>
-          <input type="button" id="evaluateScoreButton" onclick="self.location.href='/postdetail/{{$mypost -> id}}'" value="詳細內容">
+          <input type="button" class="btn btn-warning btn-sm" id="evaluateScoreButton" onclick="self.location.href='/postdetail/{{$mypost -> id}}'" value="詳細內容">
           <button type="button" class="btn btn-dark btn-sm" onclick="self.location.href='/delete/{{ $mypost->id }}/'">刪除</button>
         </div>
       </div>
