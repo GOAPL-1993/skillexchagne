@@ -15,39 +15,42 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-  <div>
+  <div class="row">
     @forelse ($searchposts as $searchpost )
-    <div class='content' style='height:85% ; padding-top:70px; position:sticky ; font-weight:bold'>
-      <div class="card" style="width: 40rem ; float:right ; margin-right:25%" id="postCard">
-        <div class="card-body">
-          <form method="GET" action="/message/">
-            <div style="display:none">
-              <label for="wannaTalk"></label>
-              <textarea id="wannaTalk" rows="1" name='wannaTalk' value='wannaTalk'>{{$searchpost -> post_user_id}}</textarea>
-            </div>
-            <h5 class="card-title">{{$searchpost -> post_username}}</h5>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{$searchpost -> sort}}</li>
-              <li class="list-group-item">{{$searchpost -> area}}</li>
-              <li class="list-group-item">擅長科目<br> {{$searchpost -> wanna_teach}}</li>
-              <li class="list-group-item">想學科目<br> {{$searchpost -> wanna_learn}}</li>
-              <hr>
-            </ul>
-            <p class="card-text">{{$searchpost -> body}}</p>
-            <div style="float: right">
-              <input type="button" class="btn btn-warning btn-sm" id="evaluateScoreButton" onclick="self.location.href='/postdetail/{{$searchpost -> id}}'" value="詳細內容">
-              @auth
-              @if( Auth::user()->name !== $searchpost -> post_username)
-              <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
-              <button type="submit" class="btn btn-dark btn-sm" value="submit">發訊息</button>
-              @endif
-              @endauth
-              @guest
-              <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
-              <button type="submit" class="btn btn-dark btn-sm" value="submit">發訊息</button>
-              @endguest
-            </div>
-          </form>
+    <div class="col-sm-6">
+
+      <div class='content' style='height:85% ; padding-top:70px; position:sticky ; font-weight:bold'>
+        <div class="card" style="width: 20rem ; float:right ; margin-right:25%" id="postCard">
+          <div class="card-body">
+            <form method="GET" action="/message/">
+              <div style="display:none">
+                <label for="wannaTalk"></label>
+                <textarea id="wannaTalk" rows="1" name='wannaTalk' value='wannaTalk'>{{$searchpost -> post_user_id}}</textarea>
+              </div>
+              <h5 class="card-title">{{$searchpost -> post_username}}</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{$searchpost -> sort}}</li>
+                <li class="list-group-item">{{$searchpost -> area}}</li>
+                <li class="list-group-item">擅長科目<br> {{$searchpost -> wanna_teach}}</li>
+                <li class="list-group-item">想學科目<br> {{$searchpost -> wanna_learn}}</li>
+                <hr>
+              </ul>
+              <p class="card-text">{{$searchpost -> body}}</p>
+              <div style="float: right">
+                <input type="button" class="btn btn-warning btn-sm" id="evaluateScoreButton" onclick="self.location.href='/postdetail/{{$searchpost -> id}}'" value="詳細內容">
+                @auth
+                @if( Auth::user()->name !== $searchpost -> post_username)
+                <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
+                <button type="submit" class="btn btn-dark btn-sm" value="submit">發訊息</button>
+                @endif
+                @endauth
+                @guest
+                <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button>
+                <button type="submit" class="btn btn-dark btn-sm" value="submit">發訊息</button>
+                @endguest
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

@@ -14,34 +14,38 @@
 <body>
   @include('includes.menu')
   @include('includes.usercatalog')
+  <div class="row">
+    @forelse ($myposts as $mypost)
+    <div class="col-sm-6">
 
-  @forelse ($myposts as $mypost)
-  @csrf
-  
-  <div class='content' style='height:85% ; padding-top:70px ; font-weight:bold'>
-    <div class="card" style="width: 40rem ; float:right ; margin-right:25%">
-      <div class="card-body">
-        <h5 class="card-title">{{$mypost -> post_username}}</h5>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">{{$mypost -> sort}}</li>
-          <li class="list-group-item">{{$mypost -> area}}</li>
-          <li class="list-group-item">擅長科目<br> {{$mypost -> wanna_teach}}</li>
-          <li class="list-group-item">想學科目<br> {{$mypost -> wanna_learn}}</li>
-          <hr>
-        </ul>
-        <p class="card-text">{{$mypost -> body}}</p>
-        <!-- <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button> -->
-        <div style="float: right">
-          <button type="button" class="btn btn-outline-info btn-sm" onclick="self.location.href='/updatepost/{{ $mypost->id }}/'">修改</button>
-          <input type="button" class="btn btn-warning btn-sm" id="evaluateScoreButton" onclick="self.location.href='/postdetail/{{$mypost -> id}}'" value="詳細內容">
-          <button type="button" class="btn btn-dark btn-sm" onclick="self.location.href='/delete/{{ $mypost->id }}/'">刪除</button>
+      @csrf
+
+      <div class='content' style='height:85% ; padding-top:70px ; font-weight:bold'>
+        <div class="card" style="width: 20rem ; float:right ; margin-right:25%">
+          <div class="card-body">
+            <h5 class="card-title">{{$mypost -> post_username}}</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{$mypost -> sort}}</li>
+              <li class="list-group-item">{{$mypost -> area}}</li>
+              <li class="list-group-item">擅長科目<br> {{$mypost -> wanna_teach}}</li>
+              <li class="list-group-item">想學科目<br> {{$mypost -> wanna_learn}}</li>
+              <hr>
+            </ul>
+            <p class="card-text">{{$mypost -> body}}</p>
+            <!-- <button type="button" class="btn btn-outline-danger btn-sm">按讚!</button> -->
+            <div style="float: right">
+              <button type="button" class="btn btn-outline-info btn-sm" onclick="self.location.href='/updatepost/{{ $mypost->id }}/'">修改</button>
+              <input type="button" class="btn btn-warning btn-sm" id="evaluateScoreButton" onclick="self.location.href='/postdetail/{{$mypost -> id}}'" value="詳細內容">
+              <button type="button" class="btn btn-dark btn-sm" onclick="self.location.href='/delete/{{ $mypost->id }}/'">刪除</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    @empty
+    <h2>no post</h2>
+    @endforelse
   </div>
-  @empty
-  <h2>no post</h2>
-  @endforelse
   <br>
 </body>
 
