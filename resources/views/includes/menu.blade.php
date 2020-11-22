@@ -31,9 +31,6 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/') }}">關於我們</a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="{{ url('/') }}">數據分析</a>
-          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/post') }}">徵求交換</a>
           </li>
@@ -52,6 +49,12 @@
             <a class="dropdown-item" href="{{ route('profile.show') }}">個人資料</a>
             <a class="dropdown-item" href="{{ url('/mypost') }}">我的貼文</a>
             <a class="dropdown-item" href="#">讚過的文章</a>
+            @if(Auth::user()->name == 'admin')
+            <a class="dropdown-item" href="{{ url('/managecatalog') }}">管理類別</a>
+            <a class="dropdown-item" href="{{ url('/managearea') }}">管理地區</a>
+            <a class="dropdown-item" href="{{ url('/manageaccount') }}">管理帳號</a>
+            <a class="dropdown-item" href="{{ url('/managepost') }}">管理文章</a>
+            @endif
             <div class="dropdown-divider"></div>
             @if (Route::has('login'))
             @auth
