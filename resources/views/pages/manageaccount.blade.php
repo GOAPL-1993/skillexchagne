@@ -31,8 +31,8 @@
             <th scope="row">{{$manageaccount -> id}}</th>
             <td>{{$manageaccount -> name}}</td>
             <td>
+              <button type="button" class="btn btn-outline-info btn-sm" onclick="self.location.href=''">freeze</button>
               <button type="button" class="btn btn-outline-danger btn-sm" onclick="self.location.href=''">delete</button>
-              <button type="button" class="btn btn-outline-info btn-sm" onclick="self.location.href=''">edit</button>
             </td>
           </tr>
           @empty

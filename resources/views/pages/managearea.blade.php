@@ -30,8 +30,8 @@
             <th scope="row">{{$managearea -> id}}</th>
             <td>{{$managearea -> name}}</td>
             <td>
-              <button type="button" class="btn btn-outline-danger btn-sm" onclick="self.location.href=''">delete</button>
               <button type="button" class="btn btn-outline-info btn-sm" onclick="self.location.href=''">edit</button>
+              <button type="button" class="btn btn-outline-danger btn-sm" onclick="self.location.href=''">delete</button>
             </td>
           </tr>
           @empty

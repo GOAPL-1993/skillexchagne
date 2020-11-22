@@ -37,6 +37,22 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/message') }}">聊天室</a>
           </li>
+          @auth
+          @if(Auth::user()->name == 'admin')
+          <li class="nav-item">
+            <a href="{{ url('/managepost') }}" class="nav-link">管理文章</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/managecatalog') }}" class="nav-link">管理類別</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/managearea') }}" class="nav-link">管理地區</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/manageaccount') }}" class="nav-link">管理帳號</a>
+          </li>
+          @endif
+          @endauth
         </ul>
       </div>
       @auth
@@ -49,12 +65,6 @@
             <a class="dropdown-item" href="{{ route('profile.show') }}">個人資料</a>
             <a class="dropdown-item" href="{{ url('/mypost') }}">我的貼文</a>
             <a class="dropdown-item" href="#">讚過的文章</a>
-            @if(Auth::user()->name == 'admin')
-            <a class="dropdown-item" href="{{ url('/managecatalog') }}">管理類別</a>
-            <a class="dropdown-item" href="{{ url('/managearea') }}">管理地區</a>
-            <a class="dropdown-item" href="{{ url('/manageaccount') }}">管理帳號</a>
-            <a class="dropdown-item" href="{{ url('/managepost') }}">管理文章</a>
-            @endif
             <div class="dropdown-divider"></div>
             @if (Route::has('login'))
             @auth

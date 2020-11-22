@@ -46,6 +46,7 @@ Route::get('/', [AboutUsController::class, 'aboutUs']);
 
 Route::get('/search/{catalog}', [SearchController::class, 'search'])->name('search');
 Route::get('/search', [SearchController::class, 'searchArea'])->name('searchArea');
+// Route::get('catalog', [SearchController::class, 'showArea'])->name('showArea');
 
 Route::get('/message', [MessageController::class, 'getTalk'])->name('getTalk');
 Route::get('/addMessage', [MessageController::class, 'addMessage'])->name('addMessage');
